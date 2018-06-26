@@ -17,13 +17,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LastPuttSplash" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-mq-tPY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FKK-mq-tPY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8Ar-1t-r1D"/>
+                            <constraint firstAttribute="bottom" secondItem="FKK-mq-tPY" secondAttribute="bottom" id="U2r-br-4Ug"/>
+                            <constraint firstAttribute="trailing" secondItem="FKK-mq-tPY" secondAttribute="trailing" id="Uc2-ai-E6w"/>
+                            <constraint firstItem="FKK-mq-tPY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="gq2-Ng-vEh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LastPuttSplash" width="2056" height="1536"/>
+    </resources>
 </document>
