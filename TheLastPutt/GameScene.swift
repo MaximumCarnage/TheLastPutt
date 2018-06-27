@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+     var obstaclesTileMap: SKTileMapNode?
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -85,5 +86,30 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    func tile(in tileMap: SKTileMapNode,  at coordinates: TileCoordinates)
+        -> SKTileDefinition? {
+            return tileMap.tileDefinition(atColumn: coordinates.column,row: coordinates.row)
+    }
+    func setupObstaclePhysics() {
+        guard let obstaclesTileMap = obstaclesTileMap else { return }
+        for row in 0..<obstaclesTileMap.numberOfRows {
+            for column in 0..<obstaclesTileMap.numberOfColumns {
+                // 2
+                guard let tile = tile(in: obstaclesTileMap, at: (column, row))
+                    else { continue }
+                guard tile.userData?.object(forKey: "obstacle") != nil
+                    else { continue }
+                // 3
+                let node = SKNode()
+                node.physicsBody = SKPhysicsBody(rectangleOf: tile.size)
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.friction = 0
+                node.position = obstaclesTileMap.centerOfTile(
+                    atColumn: column, row: row)
+                obstaclesTileMap.addChild(node)
+            }
+        }
+        
     }
 }

@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53FF78FF20E1A2C2006A25D0 /* DeansLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF78FE20E1A2C2006A25D0 /* DeansLevel.sks */; };
+		53AF918320E2F30F002D6A69 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF918220E2F30F002D6A69 /* Types.swift */; };
+		53AF918D20E3018E002D6A69 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF918C20E3018E002D6A69 /* Level1.sks */; };
+		53AF918F20E301D0002D6A69 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF918E20E301D0002D6A69 /* Level2.sks */; };
+		53AF919120E309ED002D6A69 /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919020E309ED002D6A69 /* Level3.sks */; };
+		53AF919320E30E1D002D6A69 /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919220E30E1D002D6A69 /* Level4.sks */; };
+		53AF919520E310EF002D6A69 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919420E310EF002D6A69 /* Level5.sks */; };
 		53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF790020E1A2D6006A25D0 /* TileSet.sks */; };
 		FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB187820DB2C0300EB16DE /* AppDelegate.swift */; };
 		FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187A20DB2C0300EB16DE /* GameScene.sks */; };
@@ -20,7 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		53FF78FE20E1A2C2006A25D0 /* DeansLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DeansLevel.sks; sourceTree = "<group>"; };
+		53AF918220E2F30F002D6A69 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		53AF918C20E3018E002D6A69 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level1.sks; path = TheLastPutt/Scenes/Level1.sks; sourceTree = SOURCE_ROOT; };
+		53AF918E20E301D0002D6A69 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level2.sks; path = TheLastPutt/Scenes/Level2.sks; sourceTree = SOURCE_ROOT; };
+		53AF919020E309ED002D6A69 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level3.sks; path = TheLastPutt/Assets.xcassets/Level3.sks; sourceTree = SOURCE_ROOT; };
+		53AF919220E30E1D002D6A69 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level4.sks; path = TheLastPutt/Assets.xcassets/Level4.sks; sourceTree = SOURCE_ROOT; };
+		53AF919420E310EF002D6A69 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level5.sks; path = TheLastPutt/Assets.xcassets/Level5.sks; sourceTree = SOURCE_ROOT; };
 		53FF790020E1A2D6006A25D0 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		FCAB187520DB2C0300EB16DE /* TheLastPutt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastPutt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB187820DB2C0300EB16DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +39,7 @@
 		FCAB187E20DB2C0300EB16DE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FCAB188020DB2C0300EB16DE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FCAB188320DB2C0400EB16DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCAB188520DB2C1200EB16DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /GameDev/IOS/TheLastPutt/TheLastPutt/Assets.xcassets; sourceTree = "<absolute>"; };
+		FCAB188520DB2C1200EB16DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCAB188820DB2C1200EB16DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCAB188A20DB2C1200EB16DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +58,11 @@
 		53FF78FD20E1A2A0006A25D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				53FF78FE20E1A2C2006A25D0 /* DeansLevel.sks */,
+				53AF918E20E301D0002D6A69 /* Level2.sks */,
+				53AF918C20E3018E002D6A69 /* Level1.sks */,
+				53AF919020E309ED002D6A69 /* Level3.sks */,
+				53AF919220E30E1D002D6A69 /* Level4.sks */,
+				53AF919420E310EF002D6A69 /* Level5.sks */,
 			);
 			name = Scenes;
 			path = "New Group";
@@ -77,6 +91,7 @@
 				FCAB187820DB2C0300EB16DE /* AppDelegate.swift */,
 				FCAB187A20DB2C0300EB16DE /* GameScene.sks */,
 				FCAB187C20DB2C0300EB16DE /* Actions.sks */,
+				53AF918220E2F30F002D6A69 /* Types.swift */,
 				FCAB187E20DB2C0300EB16DE /* GameScene.swift */,
 				FCAB188020DB2C0300EB16DE /* GameViewController.swift */,
 				FCAB188220DB2C0400EB16DE /* Main.storyboard */,
@@ -146,13 +161,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AF919520E310EF002D6A69 /* Level5.sks in Resources */,
 				FCAB188420DB2C0400EB16DE /* Main.storyboard in Resources */,
 				FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */,
-				53FF78FF20E1A2C2006A25D0 /* DeansLevel.sks in Resources */,
+				53AF918F20E301D0002D6A69 /* Level2.sks in Resources */,
+				53AF919120E309ED002D6A69 /* Level3.sks in Resources */,
+				53AF918D20E3018E002D6A69 /* Level1.sks in Resources */,
 				FCAB188620DB2C1200EB16DE /* Assets.xcassets in Resources */,
 				53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */,
 				FCAB188920DB2C1200EB16DE /* LaunchScreen.storyboard in Resources */,
 				FCAB187D20DB2C0300EB16DE /* Actions.sks in Resources */,
+				53AF919320E30E1D002D6A69 /* Level4.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +185,7 @@
 				FCAB187F20DB2C0300EB16DE /* GameScene.swift in Sources */,
 				FCAB188120DB2C0300EB16DE /* GameViewController.swift in Sources */,
 				FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */,
+				53AF918320E2F30F002D6A69 /* Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74H63VB4YK;
 				INFOPLIST_FILE = TheLastPutt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74H63VB4YK;
 				INFOPLIST_FILE = TheLastPutt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
