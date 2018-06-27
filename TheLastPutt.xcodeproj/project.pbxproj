@@ -13,6 +13,8 @@
 		53AF919120E309ED002D6A69 /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919020E309ED002D6A69 /* Level3.sks */; };
 		53AF919320E30E1D002D6A69 /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919220E30E1D002D6A69 /* Level4.sks */; };
 		53AF919520E310EF002D6A69 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919420E310EF002D6A69 /* Level5.sks */; };
+		53EC3EBD20E439820037BF2D /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53EC3EBC20E439820037BF2D /* Level6.sks */; };
+		53EC3EBF20E43D3B0037BF2D /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53EC3EBE20E43D3B0037BF2D /* Level7.sks */; };
 		53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF790020E1A2D6006A25D0 /* TileSet.sks */; };
 		FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB187820DB2C0300EB16DE /* AppDelegate.swift */; };
 		FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187A20DB2C0300EB16DE /* GameScene.sks */; };
@@ -31,6 +33,8 @@
 		53AF919020E309ED002D6A69 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level3.sks; path = TheLastPutt/Assets.xcassets/Level3.sks; sourceTree = SOURCE_ROOT; };
 		53AF919220E30E1D002D6A69 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level4.sks; path = TheLastPutt/Assets.xcassets/Level4.sks; sourceTree = SOURCE_ROOT; };
 		53AF919420E310EF002D6A69 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level5.sks; path = TheLastPutt/Assets.xcassets/Level5.sks; sourceTree = SOURCE_ROOT; };
+		53EC3EBC20E439820037BF2D /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level6.sks; path = TheLastPutt/Assets.xcassets/Level6.sks; sourceTree = SOURCE_ROOT; };
+		53EC3EBE20E43D3B0037BF2D /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level7.sks; path = TheLastPutt/Assets.xcassets/Level7.sks; sourceTree = SOURCE_ROOT; };
 		53FF790020E1A2D6006A25D0 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		FCAB187520DB2C0300EB16DE /* TheLastPutt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastPutt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB187820DB2C0300EB16DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				53AF919020E309ED002D6A69 /* Level3.sks */,
 				53AF919220E30E1D002D6A69 /* Level4.sks */,
 				53AF919420E310EF002D6A69 /* Level5.sks */,
+				53EC3EBC20E439820037BF2D /* Level6.sks */,
+				53EC3EBE20E43D3B0037BF2D /* Level7.sks */,
 			);
 			name = Scenes;
 			path = "New Group";
@@ -161,9 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53EC3EBF20E43D3B0037BF2D /* Level7.sks in Resources */,
 				53AF919520E310EF002D6A69 /* Level5.sks in Resources */,
 				FCAB188420DB2C0400EB16DE /* Main.storyboard in Resources */,
 				FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */,
+				53EC3EBD20E439820037BF2D /* Level6.sks in Resources */,
 				53AF918F20E301D0002D6A69 /* Level2.sks in Resources */,
 				53AF919120E309ED002D6A69 /* Level3.sks in Resources */,
 				53AF918D20E3018E002D6A69 /* Level1.sks in Resources */,
