@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LastPuttSplash" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-k3-JiL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LastPuttSplash" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-k3-JiL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -49,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Tv1-HH-Qsl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Tv1-HH-Qsl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -124,7 +124,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-vS-Kkg">
-                                <rect key="frame" x="286" y="626" width="89" height="41"/>
+                                <rect key="frame" x="278" y="618" width="89" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Arrow2"/>
                                 <connections>
@@ -152,7 +152,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Wgf-4W-n8H">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Wgf-4W-n8H">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -230,7 +230,10 @@
                                         <rect key="frame" x="8" y="618" width="89" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                        <state key="normal" backgroundImage="Arrow2"/>
+                                        <state key="normal" backgroundImage="ArrowLeft"/>
+                                        <connections>
+                                            <segue destination="Q8p-pg-4Cc" kind="show" id="yRn-3h-23c"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,6 +251,7 @@
     </scenes>
     <resources>
         <image name="Arrow2" width="180" height="96"/>
+        <image name="ArrowLeft" width="180" height="96"/>
         <image name="LastPuttSplash" width="2056" height="1536"/>
         <image name="SpaceBackground" width="852" height="480"/>
         <image name="spaceMeteors_001" width="215" height="211"/>
@@ -255,4 +259,8 @@
         <image name="spaceMeteors_003" width="214" height="227"/>
         <image name="spaceMeteors_004" width="220" height="221"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RXH-P0-sPU"/>
+        <segue reference="yRn-3h-23c"/>
+    </inferredMetricsTieBreakers>
 </document>
