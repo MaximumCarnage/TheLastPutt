@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53430C0420E44D7E0086A0FF /* Level8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0320E44D7E0086A0FF /* Level8.sks */; };
+		53430C0620E44FEB0086A0FF /* Level9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0520E44FEB0086A0FF /* Level9.sks */; };
+		53430C0820E451070086A0FF /* Level10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0720E451070086A0FF /* Level10.sks */; };
+		53430C0A20E451E30086A0FF /* Level11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0920E451E30086A0FF /* Level11.sks */; };
 		53AF918320E2F30F002D6A69 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF918220E2F30F002D6A69 /* Types.swift */; };
 		53AF918D20E3018E002D6A69 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF918C20E3018E002D6A69 /* Level1.sks */; };
 		53AF918F20E301D0002D6A69 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF918E20E301D0002D6A69 /* Level2.sks */; };
@@ -15,6 +19,13 @@
 		53AF919520E310EF002D6A69 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53AF919420E310EF002D6A69 /* Level5.sks */; };
 		53EC3EBD20E439820037BF2D /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53EC3EBC20E439820037BF2D /* Level6.sks */; };
 		53EC3EBF20E43D3B0037BF2D /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53EC3EBE20E43D3B0037BF2D /* Level7.sks */; };
+		53F642DA20E4546300430EDF /* Level12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642D920E4546300430EDF /* Level12.sks */; };
+		53F642DC20E4553700430EDF /* Level13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642DB20E4553700430EDF /* Level13.sks */; };
+		53F642DE20E4565200430EDF /* Level14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642DD20E4565200430EDF /* Level14.sks */; };
+		53F642E020E4571A00430EDF /* Level15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642DF20E4571A00430EDF /* Level15.sks */; };
+		53F642E220E4580C00430EDF /* Level16.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E120E4580C00430EDF /* Level16.sks */; };
+		53F642E420E458F200430EDF /* Level17.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E320E458F200430EDF /* Level17.sks */; };
+		53F642E620E459A400430EDF /* Level18.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E520E459A400430EDF /* Level18.sks */; };
 		53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF790020E1A2D6006A25D0 /* TileSet.sks */; };
 		FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB187820DB2C0300EB16DE /* AppDelegate.swift */; };
 		FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187A20DB2C0300EB16DE /* GameScene.sks */; };
@@ -27,14 +38,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53430C0320E44D7E0086A0FF /* Level8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level8.sks; sourceTree = "<group>"; };
+		53430C0520E44FEB0086A0FF /* Level9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level9.sks; sourceTree = "<group>"; };
+		53430C0720E451070086A0FF /* Level10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level10.sks; sourceTree = "<group>"; };
+		53430C0920E451E30086A0FF /* Level11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level11.sks; sourceTree = "<group>"; };
 		53AF918220E2F30F002D6A69 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		53AF918C20E3018E002D6A69 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level1.sks; path = TheLastPutt/Scenes/Level1.sks; sourceTree = SOURCE_ROOT; };
-		53AF918E20E301D0002D6A69 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level2.sks; path = TheLastPutt/Scenes/Level2.sks; sourceTree = SOURCE_ROOT; };
-		53AF919020E309ED002D6A69 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level3.sks; path = TheLastPutt/Assets.xcassets/Level3.sks; sourceTree = SOURCE_ROOT; };
-		53AF919220E30E1D002D6A69 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level4.sks; path = TheLastPutt/Assets.xcassets/Level4.sks; sourceTree = SOURCE_ROOT; };
-		53AF919420E310EF002D6A69 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level5.sks; path = TheLastPutt/Assets.xcassets/Level5.sks; sourceTree = SOURCE_ROOT; };
-		53EC3EBC20E439820037BF2D /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level6.sks; path = TheLastPutt/Assets.xcassets/Level6.sks; sourceTree = SOURCE_ROOT; };
-		53EC3EBE20E43D3B0037BF2D /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level7.sks; path = TheLastPutt/Assets.xcassets/Level7.sks; sourceTree = SOURCE_ROOT; };
+		53AF918C20E3018E002D6A69 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level1.sks; path = TheLastPutt/Levels/Level1.sks; sourceTree = SOURCE_ROOT; };
+		53AF918E20E301D0002D6A69 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level2.sks; path = TheLastPutt/Levels/Level2.sks; sourceTree = SOURCE_ROOT; };
+		53AF919020E309ED002D6A69 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level3.sks; path = TheLastPutt/Levels/Level3.sks; sourceTree = SOURCE_ROOT; };
+		53AF919220E30E1D002D6A69 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level4.sks; path = TheLastPutt/Levels/Level4.sks; sourceTree = SOURCE_ROOT; };
+		53AF919420E310EF002D6A69 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level5.sks; path = TheLastPutt/Levels/Level5.sks; sourceTree = SOURCE_ROOT; };
+		53EC3EBC20E439820037BF2D /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level6.sks; path = TheLastPutt/Levels/Level6.sks; sourceTree = SOURCE_ROOT; };
+		53EC3EBE20E43D3B0037BF2D /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level7.sks; path = TheLastPutt/Levels/Level7.sks; sourceTree = SOURCE_ROOT; };
+		53F642D920E4546300430EDF /* Level12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level12.sks; sourceTree = "<group>"; };
+		53F642DB20E4553700430EDF /* Level13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level13.sks; sourceTree = "<group>"; };
+		53F642DD20E4565200430EDF /* Level14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level14.sks; sourceTree = "<group>"; };
+		53F642DF20E4571A00430EDF /* Level15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level15.sks; sourceTree = "<group>"; };
+		53F642E120E4580C00430EDF /* Level16.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level16.sks; sourceTree = "<group>"; };
+		53F642E320E458F200430EDF /* Level17.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level17.sks; sourceTree = "<group>"; };
+		53F642E520E459A400430EDF /* Level18.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level18.sks; sourceTree = "<group>"; };
 		53FF790020E1A2D6006A25D0 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		FCAB187520DB2C0300EB16DE /* TheLastPutt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastPutt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB187820DB2C0300EB16DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +81,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53FF78FD20E1A2A0006A25D0 /* Scenes */ = {
+		53430C0220E44D4A0086A0FF /* Levels */ = {
 			isa = PBXGroup;
 			children = (
 				53AF918E20E301D0002D6A69 /* Level2.sks */,
@@ -69,9 +91,19 @@
 				53AF919420E310EF002D6A69 /* Level5.sks */,
 				53EC3EBC20E439820037BF2D /* Level6.sks */,
 				53EC3EBE20E43D3B0037BF2D /* Level7.sks */,
+				53430C0320E44D7E0086A0FF /* Level8.sks */,
+				53430C0520E44FEB0086A0FF /* Level9.sks */,
+				53430C0720E451070086A0FF /* Level10.sks */,
+				53430C0920E451E30086A0FF /* Level11.sks */,
+				53F642D920E4546300430EDF /* Level12.sks */,
+				53F642DB20E4553700430EDF /* Level13.sks */,
+				53F642DD20E4565200430EDF /* Level14.sks */,
+				53F642DF20E4571A00430EDF /* Level15.sks */,
+				53F642E120E4580C00430EDF /* Level16.sks */,
+				53F642E320E458F200430EDF /* Level17.sks */,
+				53F642E520E459A400430EDF /* Level18.sks */,
 			);
-			name = Scenes;
-			path = "New Group";
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		FCAB186C20DB2C0300EB16DE = {
@@ -93,7 +125,7 @@
 		FCAB187720DB2C0300EB16DE /* TheLastPutt */ = {
 			isa = PBXGroup;
 			children = (
-				53FF78FD20E1A2A0006A25D0 /* Scenes */,
+				53430C0220E44D4A0086A0FF /* Levels */,
 				FCAB187820DB2C0300EB16DE /* AppDelegate.swift */,
 				FCAB187A20DB2C0300EB16DE /* GameScene.sks */,
 				FCAB187C20DB2C0300EB16DE /* Actions.sks */,
@@ -170,16 +202,27 @@
 				53EC3EBF20E43D3B0037BF2D /* Level7.sks in Resources */,
 				53AF919520E310EF002D6A69 /* Level5.sks in Resources */,
 				FCAB188420DB2C0400EB16DE /* Main.storyboard in Resources */,
+				53F642E620E459A400430EDF /* Level18.sks in Resources */,
+				53F642E420E458F200430EDF /* Level17.sks in Resources */,
+				53F642DA20E4546300430EDF /* Level12.sks in Resources */,
+				53430C0820E451070086A0FF /* Level10.sks in Resources */,
 				FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */,
+				53F642E020E4571A00430EDF /* Level15.sks in Resources */,
+				53F642E220E4580C00430EDF /* Level16.sks in Resources */,
 				53EC3EBD20E439820037BF2D /* Level6.sks in Resources */,
 				53AF918F20E301D0002D6A69 /* Level2.sks in Resources */,
 				53AF919120E309ED002D6A69 /* Level3.sks in Resources */,
 				53AF918D20E3018E002D6A69 /* Level1.sks in Resources */,
+				53430C0A20E451E30086A0FF /* Level11.sks in Resources */,
 				FCAB188620DB2C1200EB16DE /* Assets.xcassets in Resources */,
+				53430C0620E44FEB0086A0FF /* Level9.sks in Resources */,
 				53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */,
 				FCAB188920DB2C1200EB16DE /* LaunchScreen.storyboard in Resources */,
+				53F642DE20E4565200430EDF /* Level14.sks in Resources */,
+				53F642DC20E4553700430EDF /* Level13.sks in Resources */,
 				FCAB187D20DB2C0300EB16DE /* Actions.sks in Resources */,
 				53AF919320E30E1D002D6A69 /* Level4.sks in Resources */,
+				53430C0420E44D7E0086A0FF /* Level8.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
