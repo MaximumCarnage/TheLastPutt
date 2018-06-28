@@ -26,6 +26,7 @@
 		53F642E220E4580C00430EDF /* Level16.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E120E4580C00430EDF /* Level16.sks */; };
 		53F642E420E458F200430EDF /* Level17.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E320E458F200430EDF /* Level17.sks */; };
 		53F642E620E459A400430EDF /* Level18.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E520E459A400430EDF /* Level18.sks */; };
+		53F642E820E45FA500430EDF /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F642E720E45FA500430EDF /* HUD.swift */; };
 		53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF790020E1A2D6006A25D0 /* TileSet.sks */; };
 		FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB187820DB2C0300EB16DE /* AppDelegate.swift */; };
 		FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187A20DB2C0300EB16DE /* GameScene.sks */; };
@@ -57,6 +58,7 @@
 		53F642E120E4580C00430EDF /* Level16.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level16.sks; sourceTree = "<group>"; };
 		53F642E320E458F200430EDF /* Level17.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level17.sks; sourceTree = "<group>"; };
 		53F642E520E459A400430EDF /* Level18.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level18.sks; sourceTree = "<group>"; };
+		53F642E720E45FA500430EDF /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		53FF790020E1A2D6006A25D0 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		FCAB187520DB2C0300EB16DE /* TheLastPutt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastPutt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB187820DB2C0300EB16DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				FCAB188720DB2C1200EB16DE /* LaunchScreen.storyboard */,
 				FCAB188A20DB2C1200EB16DE /* Info.plist */,
 				53FF790020E1A2D6006A25D0 /* TileSet.sks */,
+				53F642E720E45FA500430EDF /* HUD.swift */,
 			);
 			path = TheLastPutt;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCAB187F20DB2C0300EB16DE /* GameScene.swift in Sources */,
+				53F642E820E45FA500430EDF /* HUD.swift in Sources */,
 				FCAB188120DB2C0300EB16DE /* GameViewController.swift in Sources */,
 				FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */,
 				53AF918320E2F30F002D6A69 /* Types.swift in Sources */,
