@@ -8,14 +8,19 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
 
 class GameScene: SKScene {
-     var obstaclesTileMap: SKTileMapNode?
+    var obstaclesTileMap: SKTileMapNode?
+    var currentLevel: Int = 0
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    
     override func didMove(to view: SKView) {
+        
+        
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -62,6 +67,7 @@ class GameScene: SKScene {
             self.addChild(n)
         }
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let label = self.label {
@@ -112,5 +118,8 @@ class GameScene: SKScene {
         }
         
     }
+    
+   
+    
     
 }

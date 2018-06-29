@@ -11,13 +11,14 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    var level:String = " "
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(level)
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "Level\(level)") {
                 // Set the scale mode to scale to fit the window
                 
                 
@@ -52,4 +53,7 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    
+    
 }
