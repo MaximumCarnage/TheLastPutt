@@ -28,6 +28,7 @@
 		53F642E620E459A400430EDF /* Level18.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53F642E520E459A400430EDF /* Level18.sks */; };
 		53F642E820E45FA500430EDF /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F642E720E45FA500430EDF /* HUD.swift */; };
 		53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53FF790020E1A2D6006A25D0 /* TileSet.sks */; };
+		75904F7720E5B90300ED64D7 /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75904F7620E5B90300ED64D7 /* BallNode.swift */; };
 		FCAB187920DB2C0300EB16DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB187820DB2C0300EB16DE /* AppDelegate.swift */; };
 		FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187A20DB2C0300EB16DE /* GameScene.sks */; };
 		FCAB187D20DB2C0300EB16DE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCAB187C20DB2C0300EB16DE /* Actions.sks */; };
@@ -60,6 +61,7 @@
 		53F642E520E459A400430EDF /* Level18.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level18.sks; sourceTree = "<group>"; };
 		53F642E720E45FA500430EDF /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		53FF790020E1A2D6006A25D0 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
+		75904F7620E5B90300ED64D7 /* BallNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
 		FCAB187520DB2C0300EB16DE /* TheLastPutt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastPutt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB187820DB2C0300EB16DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCAB187A20DB2C0300EB16DE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		FCAB187720DB2C0300EB16DE /* TheLastPutt */ = {
 			isa = PBXGroup;
 			children = (
+				75904F7620E5B90300ED64D7 /* BallNode.swift */,
 				53430C0220E44D4A0086A0FF /* Levels */,
 				FCAB187820DB2C0300EB16DE /* AppDelegate.swift */,
 				FCAB187A20DB2C0300EB16DE /* GameScene.sks */,
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75904F7720E5B90300ED64D7 /* BallNode.swift in Sources */,
 				FCAB187F20DB2C0300EB16DE /* GameScene.swift in Sources */,
 				53F642E820E45FA500430EDF /* HUD.swift in Sources */,
 				FCAB188120DB2C0300EB16DE /* GameViewController.swift in Sources */,
