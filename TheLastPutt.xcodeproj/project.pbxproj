@@ -115,7 +115,6 @@
 		FCAB186C20DB2C0300EB16DE = {
 			isa = PBXGroup;
 			children = (
-				FC8E644720E6219E00E161EF /* LevelSelectController.swift */,
 				FCAB187720DB2C0300EB16DE /* TheLastPutt */,
 				FCAB187620DB2C0300EB16DE /* Products */,
 			);
@@ -132,6 +131,7 @@
 		FCAB187720DB2C0300EB16DE /* TheLastPutt */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E644720E6219E00E161EF /* LevelSelectController.swift */,
 				75904F7620E5B90300ED64D7 /* BallNode.swift */,
 				53430C0220E44D4A0086A0FF /* Levels */,
 				FCAB187820DB2C0300EB16DE /* AppDelegate.swift */,
