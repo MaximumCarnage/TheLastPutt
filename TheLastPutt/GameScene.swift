@@ -24,7 +24,6 @@ class GameScene: SKScene {
     var ballSelected: Bool = false
     
     
-    
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
     var currentLevel: Int = 0
@@ -58,10 +57,20 @@ class GameScene: SKScene {
 //                                              SKAction.fadeOut(withDuration: 0.5),
 //                                              SKAction.removeFromParent()]))
 //        }
+        
 
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
+        
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width * 0.5)
+        
+        setupWorldPhysics()
+        
+    }
+    
+    func setupWorldPhysics() {
+        background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
     }
     
     
