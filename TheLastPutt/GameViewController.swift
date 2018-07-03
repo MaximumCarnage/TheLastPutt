@@ -54,6 +54,12 @@ class GameViewController: UIViewController {
         return true
     }
     
+    @IBAction func ReturntoMenu(_ sender: UIButton) {
+        performSegue(withIdentifier: "backtoMenu", sender: self)
+        
+        
+    }
+    
     
     
 }
