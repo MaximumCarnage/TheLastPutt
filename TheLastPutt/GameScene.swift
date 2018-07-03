@@ -37,93 +37,51 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-//        print("Running")
-//        // Get label node from scene and store it for use later
-//        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-//        if let label = self.label {
-//            label.alpha = 0.0
-//            label.run(SKAction.fadeIn(withDuration: 2.0))
-//        }
-//
-//        // Create shape node to use during mouse interaction
-//        let w = (self.size.width + self.size.height) * 0.05
-//        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-//
-//        if let spinnyNode = self.spinnyNode {
-//            spinnyNode.lineWidth = 2.5
-//
-//            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-//            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-//                                              SKAction.fadeOut(withDuration: 0.5),
-//                                              SKAction.removeFromParent()]))
-//        }
-        
-
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
         
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width * 0.5)
-        
-        setupWorldPhysics()
+        // setupWorldPhysics()
         
     }
     
-    func setupWorldPhysics() {
-        background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
-    }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-
+//    func setupWorldPhysics() {
+//        background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
+//    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+                // the ball has been selected
+                // find out where the finger has landed
+        
+        
+//        if ballSelected {
+//            firstTouchLocation = ball.position
+//        }
+        
+        guard let touch = touches.first else {
+            return
         }
-
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        firstTouchLocation = touch.location(in: self)
+        
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-
+                // y-value (uncertain) of arrow sprite will increase as the player moves touch away from ball
+            }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-
+                // will launch ball in direction the finger was dragged to with velocity
         guard let touch = touches.first else {
             return
         }
         let touchLocation = touch.location(in: self)
         lastTouchLocation = touchLocation
+        
+        
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
 
     }
 
@@ -136,8 +94,10 @@ class GameScene: SKScene {
             dt = 0
         }
         lastUpdateTime = currentTime
-
-        //move(sprite: ball, velocity: swipeVelocity)
+        
+        
+        ball.move(velocity: swipeVelocity)
+        // move(sprite: ball, velocity: swipeVelocity)
 
 
     }
@@ -166,11 +126,11 @@ class GameScene: SKScene {
         }
     }
 
-    func move(sprite: SKSpriteNode, velocity: CGPoint) {
-        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
-
-        sprite.position = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
-    }
+//    func move(sprite: SKSpriteNode, velocity: CGPoint) {
+//        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
+//
+//        sprite.position = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
+//    }
 
     // parameters may change depending on the outcome
     func touchOffset(firstLocation: CGPoint, lastLocation: CGPoint) {
