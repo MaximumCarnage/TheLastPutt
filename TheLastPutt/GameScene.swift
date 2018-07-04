@@ -23,6 +23,8 @@ class GameScene: SKScene {
     var lastTouchLocation = CGPoint.zero
     var ballSelected: Bool = false
     
+    let pointsLabel = SKLabelNode()
+    var swings = 0
     
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
@@ -40,6 +42,13 @@ class GameScene: SKScene {
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
+        
+        pointsLabel.text = "Swings: 0"
+        pointsLabel.fontColor = SKColor.black
+        pointsLabel.fontSize = 24
+        pointsLabel.zPosition = 150
+        // pointsLabel.position = CGPoint(x: size.width/2, y: size.height/2)
+        addChild(pointsLabel)
         
         // setupWorldPhysics()
         
@@ -66,11 +75,11 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-                // y-value (uncertain) of arrow sprite will increase as the player moves touch away from ball
-            }
+        // y-value (uncertain) of arrow sprite will increase as the player moves touch away from ball
+    }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-                // will launch ball in direction the finger was dragged to with velocity
+        // will launch ball in direction the finger was dragged to with velocity
         guard let touch = touches.first else {
             return
         }
@@ -79,6 +88,8 @@ class GameScene: SKScene {
         
         
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
+        
+        swings += 1
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -97,10 +108,12 @@ class GameScene: SKScene {
         
         
         ball.move(velocity: swipeVelocity)
+        
+        pointsLabel.text = "Swings: \(swings)"
+        
         // move(sprite: ball, velocity: swipeVelocity)
-
-
     }
+    
     func tile(in tileMap: SKTileMapNode,  at coordinates: TileCoordinates)
         -> SKTileDefinition? {
             return tileMap.tileDefinition(atColumn: coordinates.column,row: coordinates.row)
