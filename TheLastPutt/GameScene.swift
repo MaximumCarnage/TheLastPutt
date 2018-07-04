@@ -28,9 +28,12 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
+    
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        background = childNode(withName: "background") as! SKTileMapNode
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
         
     }
@@ -40,15 +43,33 @@ class GameScene: SKScene {
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
+        //addChild(background)
         
-        //setupWorldPhysics()
+        setupWorldPhysics()
         setupObstaclePhysics()
+        setupGrassCollider()
         
     }
     
-//    func setupWorldPhysics() {
-//        background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
-//    }
+    func setupWorldPhysics() {
+        background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
+        
+       
+    }
+    func setupGrassCollider() {
+        for node in self.children {
+            if (node.name == "Collider") {
+                print("Collider")
+                let grassCollider = node.calculateAccumulatedFrame()
+                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
+                node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.categoryBitMask = PhysicsCategory.collider
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.allowsRotation = false
+            }
+        }
+        
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
                 // the ball has been selected
@@ -136,10 +157,10 @@ class GameScene: SKScene {
 //        }
 //    }
 //
-//    func setupWorldPhysics() {
-//        background.physicsBody =
-//            SKPhysicsBody(edgeLoopFrom: background.frame)
-//    }
+    //func setupWorldPhysics() {
+     //   background.physicsBody =
+      //      SKPhysicsBody(edgeLoopFrom: background.frame)
+    //}
     func didBegin(_ contact: SKPhysicsContact) {
         
     }
@@ -153,8 +174,16 @@ class GameScene: SKScene {
                 guard let tile = tile(in: obstaclesTileMap,at: (column, row))
                                       else { continue }
                 // 3
+//                let texturedTrees = SKSpriteNode(texture: treeTexture)
+//                texturedTrees.physicsBody = SKPhysicsBody(texture: treeTexture, size: CGSize(width: circularSpaceShip.size.width, height: circularSpaceShip.size.height))
+                
+                
+                
+                
+                
                 let center = obstaclesTileMap
                     .centerOfTile(atColumn: column, row: row)
+ //               let body = SKPhysicsBody(size: CGSize(width: tile.size.width/2, height: tile.size.height)
                 let body = SKPhysicsBody(rectangleOf: tile.size,
                                          center: center)
                 physicsBodies.append(body)
