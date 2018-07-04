@@ -11,7 +11,7 @@ import GameplayKit
 import UIKit
 
 class GameScene: SKScene {
-    
+    //var WaterNode = SKNode()
     // Ball Properties
     var ball = BallNode()
     var lastUpdateTime: TimeInterval = 0
@@ -22,8 +22,6 @@ class GameScene: SKScene {
     var firstTouchLocation = CGPoint.zero
     var lastTouchLocation = CGPoint.zero
     var ballSelected: Bool = false
-    
-    
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
     var currentLevel: Int = 0
@@ -33,15 +31,18 @@ class GameScene: SKScene {
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
         
     }
+    
     
     override func didMove(to view: SKView) {
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
         
-        // setupWorldPhysics()
+        //setupWorldPhysics()
+        setupObstaclePhysics()
         
     }
     
@@ -105,26 +106,7 @@ class GameScene: SKScene {
         -> SKTileDefinition? {
             return tileMap.tileDefinition(atColumn: coordinates.column,row: coordinates.row)
     }
-    func setupObstaclePhysics() {
-        guard let obstaclesTileMap = obstaclesTileMap else { return }
-        for row in 0..<obstaclesTileMap.numberOfRows {
-            for column in 0..<obstaclesTileMap.numberOfColumns {
-                // 2
-                guard let tile = tile(in: obstaclesTileMap, at: (column, row))
-                    else { continue }
-                guard tile.userData?.object(forKey: "obstacle") != nil
-                    else { continue }
-                // 3
-                let node = SKNode()
-                node.physicsBody = SKPhysicsBody(rectangleOf: tile.size)
-                node.physicsBody?.isDynamic = false
-                node.physicsBody?.friction = 0
-                node.position = obstaclesTileMap.centerOfTile(
-                    atColumn: column, row: row)
-                obstaclesTileMap.addChild(node)
-            }
-        }
-    }
+ 
 
 //    func move(sprite: SKSpriteNode, velocity: CGPoint) {
 //        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
@@ -153,5 +135,38 @@ class GameScene: SKScene {
 //            velocity.x = -velocity.x
 //        }
 //    }
+//
+//    func setupWorldPhysics() {
+//        background.physicsBody =
+//            SKPhysicsBody(edgeLoopFrom: background.frame)
+//    }
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+    }
+    func setupObstaclePhysics() {
+        guard let obstaclesTileMap = obstaclesTileMap else { return }
+        // 1
+        var physicsBodies = [SKPhysicsBody]()
+        // 2
+        for row in 0..<obstaclesTileMap.numberOfRows {
+            for column in 0..<obstaclesTileMap.numberOfColumns {
+                guard let tile = tile(in: obstaclesTileMap,at: (column, row))
+                                      else { continue }
+                // 3
+                let center = obstaclesTileMap
+                    .centerOfTile(atColumn: column, row: row)
+                let body = SKPhysicsBody(rectangleOf: tile.size,
+                                         center: center)
+                physicsBodies.append(body)
+            }
+        }
+        // 4
+        obstaclesTileMap.physicsBody =
+            SKPhysicsBody(bodies: physicsBodies)
+        obstaclesTileMap.physicsBody?.isDynamic = false
+        obstaclesTileMap.physicsBody?.friction = 0
+    }
+    
     
 }
+//extension GameScene : SKPhysicsContactDelegate{}
