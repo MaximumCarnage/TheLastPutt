@@ -15,5 +15,6 @@ struct PhysicsCategory {
     static let Edge:UInt32 = 0b1
     static let Player: UInt32 = 0b10
     static let collider: UInt32  = 0b100
+    static let Goal: UInt32 = 0b1000
 }
 

@@ -28,6 +28,9 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var swingsLabel = SKLabelNode()
+    var swings = 0
+    
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,6 +47,12 @@ class GameScene: SKScene {
         ball.setScale(2.0)
         addChild(ball)
         //addChild(background)
+        
+        swingsLabel.text = "Swings: X"
+        swingsLabel.fontColor = SKColor.black
+        swingsLabel.fontSize = 24
+        swingsLabel.zPosition = 150
+        addChild(swingsLabel)
         
         setupWorldPhysics()
         setupObstaclePhysics()
@@ -101,6 +110,8 @@ class GameScene: SKScene {
         
         
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
+        
+        swings += 1
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,9 +131,17 @@ class GameScene: SKScene {
         
         ball.move(velocity: swipeVelocity)
         // move(sprite: ball, velocity: swipeVelocity)
-
+        
+        swingsLabel.text = "Swings: \(swings)"
 
     }
+    
+    func win() {
+        if currentLevel < 18 {
+            currentLevel += 1
+        }
+    }
+    
     func tile(in tileMap: SKTileMapNode,  at coordinates: TileCoordinates)
         -> SKTileDefinition? {
             return tileMap.tileDefinition(atColumn: coordinates.column,row: coordinates.row)
@@ -163,7 +182,14 @@ class GameScene: SKScene {
     //}
     func didBegin(_ contact: SKPhysicsContact) {
         
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            win()
+        }
     }
+    
+    
     func setupObstaclePhysics() {
         guard let obstaclesTileMap = obstaclesTileMap else { return }
         // 1
