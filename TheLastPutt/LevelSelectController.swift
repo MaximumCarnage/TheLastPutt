@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
+var musicEffect: AVAudioPlayer = AVAudioPlayer()
 
 class LevelSelectController: UIViewController {
     var levelSelect: String = " "
@@ -18,7 +20,22 @@ class LevelSelectController: UIViewController {
        
         
     }
-   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        let musicFile = Bundle.main.path(forResource: "LevelSelect", ofType: ".mp3")
+        do {
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                
+                    musicEffect.play()
+                }
+        catch {
+            print(error)
+        }
+
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GameViewController{
