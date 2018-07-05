@@ -11,7 +11,7 @@ import GameplayKit
 import UIKit
 
 class GameScene: SKScene {
-    
+    //var WaterNode = SKNode()
     // Ball Properties
     var ball = BallNode()
     var lastUpdateTime: TimeInterval = 0
@@ -22,108 +22,117 @@ class GameScene: SKScene {
     var firstTouchLocation = CGPoint.zero
     var lastTouchLocation = CGPoint.zero
     var ballSelected: Bool = false
-    
-    
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
     var currentLevel: Int = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var swingsLabel = SKLabelNode()
+    var swings = 0
+    
+    let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
+    
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        background = childNode(withName: "background") as! SKTileMapNode
+        obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
         
     }
     
+    
     override func didMove(to view: SKView) {
-//        print("Running")
-//        // Get label node from scene and store it for use later
-//        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-//        if let label = self.label {
-//            label.alpha = 0.0
-//            label.run(SKAction.fadeIn(withDuration: 2.0))
-//        }
-//
-//        // Create shape node to use during mouse interaction
-//        let w = (self.size.width + self.size.height) * 0.05
-//        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-//
-//        if let spinnyNode = self.spinnyNode {
-//            spinnyNode.lineWidth = 2.5
-//
-//            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-//            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-//                                              SKAction.fadeOut(withDuration: 0.5),
-//                                              SKAction.removeFromParent()]))
-//        }
-        
-
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
+        //addChild(background)
         
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width * 0.5)
+        swingsLabel.text = "Swings: X"
+        swingsLabel.fontColor = SKColor.black
+        swingsLabel.fontSize = 24
+        swingsLabel.zPosition = 150
+        addChild(swingsLabel)
         
         setupWorldPhysics()
+       // setupObstaclePhysics()
+        setupGrassCollider()
+        //setupTreeCollider()
         
     }
     
     func setupWorldPhysics() {
         background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
+        
+       
     }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
+    func setupGrassCollider() {
+        for node in self.children {
+            if (node.name == "Collider") {
+                let grassCollider = node.calculateAccumulatedFrame()
+                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
+                node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.categoryBitMask = PhysicsCategory.collider
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.allowsRotation = false
+                node.physicsBody?.restitution = 1.15
+                swipeVelocity.y = -swipeVelocity.y
+                swipeVelocity.x = -swipeVelocity.x
+                
+            }
         }
+        
     }
-
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-
+//    func setupTreeCollider() {
+//        for node in self.children {
+//            if (node.name == "Collider") {
+//                print("Collider")
+//                let grassCollider = node.calculateAccumulatedFrame()
+//                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
+//                node.physicsBody?.affectedByGravity = false
+//                node.physicsBody?.categoryBitMask = PhysicsCategory.collider
+//                node.physicsBody?.isDynamic = false
+//                node.physicsBody?.allowsRotation = false
+//            }
+//        }
+//
+//    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+                // the ball has been selected
+                // find out where the finger has landed
+        
+        
+//        if ballSelected {
+//            firstTouchLocation = ball.position
+//        }
+        
+        guard let touch = touches.first else {
+            return
         }
-
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        firstTouchLocation = touch.location(in: self)
+        
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-
+                // y-value (uncertain) of arrow sprite will increase as the player moves touch away from ball
+            }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-
+                // will launch ball in direction the finger was dragged to with velocity
         guard let touch = touches.first else {
             return
         }
         let touchLocation = touch.location(in: self)
         lastTouchLocation = touchLocation
+        
+        ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
+        
+        swings += 1
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
 
     }
 
@@ -136,41 +145,32 @@ class GameScene: SKScene {
             dt = 0
         }
         lastUpdateTime = currentTime
-
-        //move(sprite: ball, velocity: swipeVelocity)
-
+        
+        
+        
+        // move(sprite: ball, velocity: swipeVelocity)
+        
+        swingsLabel.text = "Swings: \(swings)"
 
     }
+    
+    func win() {
+        if currentLevel < 18 {
+            currentLevel += 1
+        }
+    }
+    
     func tile(in tileMap: SKTileMapNode,  at coordinates: TileCoordinates)
         -> SKTileDefinition? {
             return tileMap.tileDefinition(atColumn: coordinates.column,row: coordinates.row)
     }
-    func setupObstaclePhysics() {
-        guard let obstaclesTileMap = obstaclesTileMap else { return }
-        for row in 0..<obstaclesTileMap.numberOfRows {
-            for column in 0..<obstaclesTileMap.numberOfColumns {
-                // 2
-                guard let tile = tile(in: obstaclesTileMap, at: (column, row))
-                    else { continue }
-                guard tile.userData?.object(forKey: "obstacle") != nil
-                    else { continue }
-                // 3
-                let node = SKNode()
-                node.physicsBody = SKPhysicsBody(rectangleOf: tile.size)
-                node.physicsBody?.isDynamic = false
-                node.physicsBody?.friction = 0
-                node.position = obstaclesTileMap.centerOfTile(
-                    atColumn: column, row: row)
-                obstaclesTileMap.addChild(node)
-            }
-        }
-    }
+ 
 
-    func move(sprite: SKSpriteNode, velocity: CGPoint) {
-        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
-
-        sprite.position = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
-    }
+//    func move(sprite: SKSpriteNode, velocity: CGPoint) {
+//        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
+//
+//        sprite.position = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
+//    }
 
     // parameters may change depending on the outcome
     func touchOffset(firstLocation: CGPoint, lastLocation: CGPoint) {
@@ -193,5 +193,53 @@ class GameScene: SKScene {
 //            velocity.x = -velocity.x
 //        }
 //    }
+//
+    //func setupWorldPhysics() {
+     //   background.physicsBody =
+      //      SKPhysicsBody(edgeLoopFrom: background.frame)
+    //}
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            win()
+        }
+    }
+
+//    func setupObstaclePhysics() {
+//        guard let obstaclesTileMap = obstaclesTileMap else { return }
+//        // 1
+//        var physicsBodies = [SKPhysicsBody]()
+//        // 2
+//        for row in 0..<obstaclesTileMap.numberOfRows {
+//            for column in 0..<obstaclesTileMap.numberOfColumns {
+//                guard let tile = tile(in: obstaclesTileMap,at: (column, row))
+//                                      else { continue }
+//                // 3
+////                let texturedTrees = SKSpriteNode(texture: treeTexture)
+////                texturedTrees.physicsBody = SKPhysicsBody(texture: treeTexture, size: CGSize(width: circularSpaceShip.size.width, height: circularSpaceShip.size.height))
+//
+//
+//
+//
+//
+//                let center = obstaclesTileMap
+//                    .centerOfTile(atColumn: column, row: row)
+// //               let body = SKPhysicsBody(size: CGSize(width: tile.size.width/2, height: tile.size.height)
+//                let body = SKPhysicsBody(rectangleOf: tile.size,
+//                                         center: center)
+//                physicsBodies.append(body)
+//            }
+//        }
+//        // 4
+//        obstaclesTileMap.physicsBody =
+//            SKPhysicsBody(bodies: physicsBodies)
+//        obstaclesTileMap.physicsBody?.isDynamic = false
+//        obstaclesTileMap.physicsBody?.friction = 0
+//    }
+
+    
     
 }
+//extension GameScene : SKPhysicsContactDelegate{}

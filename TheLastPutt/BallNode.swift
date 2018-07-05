@@ -28,9 +28,17 @@ class BallNode: SKSpriteNode {
     
      init() {
         let texture = SKTexture(imageNamed: "ball_generic1")
-        super.init(texture: texture,color: .white,size: texture.size())
+        super.init(texture: texture, color: .white,size: texture.size())
         name = "Player"
         zPosition = 50
+        
+        
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+        physicsBody?.friction = 0.5
+        physicsBody?.restitution = 0.5
+        physicsBody?.linearDamping = 0.5
+//        physicsBody?.categoryBitMask = PhysicsCategory.Player
+//        physicsBody?.contactTestBitMask = PhysicsCategory.All
     }
 
      func update(_ currentTime: TimeInterval) {
@@ -41,11 +49,16 @@ class BallNode: SKSpriteNode {
         }
         lastUpdateTime = currentTime
 
-        move(sprite: texture, velocity: swipeVelocity)
+        // move(sprite: texture, velocity: swipeVelocity)
     }
 
-    func move(sprite: SKTexture?, velocity: CGPoint) {
-        let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
+    func move(velocity: CGPoint) {
+        guard let physicsBody = physicsBody else { return }
+        
+        physicsBody.velocity = CGVector(dx: velocity.x, dy: velocity.y)
+        
+        
+        // let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
 
         //TODO:Fix Movement = CGPoint(x: sprite.position.x + amountToMove.x, y: sprite.position.y + amountToMove.y)
     }
