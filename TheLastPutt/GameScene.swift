@@ -66,7 +66,7 @@ class GameScene: SKScene {
                 node.physicsBody?.categoryBitMask = PhysicsCategory.collider
                 node.physicsBody?.isDynamic = false
                 node.physicsBody?.allowsRotation = false
-                node.physicsBody?.restitution = 0.5
+                node.physicsBody?.restitution = 1.15
                 swipeVelocity.y = -swipeVelocity.y
                 swipeVelocity.x = -swipeVelocity.x
                 
