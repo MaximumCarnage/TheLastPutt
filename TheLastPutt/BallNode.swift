@@ -34,7 +34,8 @@ class BallNode: SKSpriteNode {
         
         
         physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
-        physicsBody?.restitution = 1.0
+        physicsBody?.friction = 0.5
+        physicsBody?.restitution = 0.5
         physicsBody?.linearDamping = 0.5
 //        physicsBody?.categoryBitMask = PhysicsCategory.Player
 //        physicsBody?.contactTestBitMask = PhysicsCategory.All
