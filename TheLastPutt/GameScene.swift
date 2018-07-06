@@ -29,7 +29,8 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     var swingsLabel = SKLabelNode()
-    var swings = 0
+    //var swings = 0
+    var swings: Int = 10
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
     
@@ -38,6 +39,10 @@ class GameScene: SKScene {
         super.init(coder: aDecoder)
         background = childNode(withName: "background") as! SKTileMapNode
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
+        
+    }
+    func UpdateStrokes(){
+        
         
     }
     
@@ -129,7 +134,7 @@ class GameScene: SKScene {
         ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
         
-        swings += 1
+        swings -= 1
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
