@@ -17,12 +17,14 @@ class LevelSelectController: UIViewController {
     let userDefaults = UserDefaults.standard
     var levelProg = [Bool]()
     var highScores = [Int]()
-    var count: Int = 0
+    var count2: Int = 0
     @IBOutlet var buttonArray: [UIButton]!
+    @IBOutlet var scoreLabels: [UILabel]!
     
     
     
     override func viewDidLoad() {
+        var count: Int = 0
         let launchedBefore = userDefaults.bool(forKey:"launchedBefore")
         if launchedBefore  {
             levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
@@ -41,11 +43,17 @@ class LevelSelectController: UIViewController {
             
             
         }
-   
+        
         for item in buttonArray{
             item.isEnabled = levelProg[count]
             count+=1
+            print(count)
         }
+        
+//        for item in scoreLabels{
+//            item.text = "BestScore:" +  String(highScores[count2])
+//            count2+=1
+//        }
 
         
     }
