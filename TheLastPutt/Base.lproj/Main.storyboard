@@ -258,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-lM-Zgg">
-                                <rect key="frame" x="160" y="247" width="73" height="69"/>
+                                <rect key="frame" x="309" y="247" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="16" backgroundImage="spaceMeteors_002">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,7 +268,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUv-lG-ofz">
-                                <rect key="frame" x="436" y="247" width="73" height="69"/>
+                                <rect key="frame" x="560" y="247" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="18" backgroundImage="spaceMeteors_003">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKC-hO-jIb">
-                                <rect key="frame" x="306" y="247" width="73" height="69"/>
+                                <rect key="frame" x="436" y="247" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="17" backgroundImage="spaceMeteors_001">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -317,7 +317,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7s-ZV-CHM">
-                                <rect key="frame" x="560" y="250" width="73" height="66"/>
+                                <rect key="frame" x="160" y="247" width="73" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="15" backgroundImage="spaceMeteors_001">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -350,7 +350,7 @@
         <image name="spaceMeteors_004" width="220" height="221"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YII-ok-nil"/>
-        <segue reference="FXh-4p-PP1"/>
+        <segue reference="yRn-3h-23c"/>
+        <segue reference="XMz-bz-L2a"/>
     </inferredMetricsTieBreakers>
 </document>

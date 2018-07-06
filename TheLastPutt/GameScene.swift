@@ -25,6 +25,8 @@ class GameScene: SKScene {
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
     var currentLevel: Int = 0
+    var playerX:CGFloat
+    var playerY:CGFloat
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -35,17 +37,20 @@ class GameScene: SKScene {
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
     
     required init?(coder aDecoder: NSCoder) {
-        
+        self.playerX = 0
+        self.playerY = 0
         super.init(coder: aDecoder)
         background = childNode(withName: "background") as! SKTileMapNode
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
-        var playerX = userData?.object(forKey: "playerX") as? Int
-        var playerY = userData?.object(forKey: "playerY") as? Int
+        playerX = userData?.object(forKey: "playerX") as! CGFloat
+        playerY = userData?.object(forKey: "playerY") as! CGFloat
     }
     
     
+    
+    
     override func didMove(to view: SKView) {
-        ball.position = CGPoint(x: 50, y: 50)
+        ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
         addChild(ball)
         //addChild(background)
