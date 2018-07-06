@@ -25,25 +25,37 @@ class GameScene: SKScene {
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
     var currentLevel: Int = 0
+    var playerX:CGFloat
+    var playerY:CGFloat
+    var levelProg = [Bool]()
+    var highScores = [Int]()
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     var swingsLabel = SKLabelNode()
     var swings = 0
     
+    
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
+    let userDefaults = UserDefaults.standard
     
     required init?(coder aDecoder: NSCoder) {
-        
+        self.playerX = 0
+        self.playerY = 0
         super.init(coder: aDecoder)
         background = childNode(withName: "background") as! SKTileMapNode
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
-        
+        playerX = userData?.object(forKey: "playerX") as! CGFloat
+        playerY = userData?.object(forKey: "playerY") as! CGFloat
+        levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
+        highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
     }
     
     
+    
+    
     override func didMove(to view: SKView) {
-        //ball.position = CGPoint(x: 50, y: 50)
+        ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
         addChild(ball)
         //addChild(background)
@@ -156,6 +168,8 @@ class GameScene: SKScene {
     
     func win() {
         if currentLevel < 18 {
+            levelProg[currentLevel+1] = true
+            userDefaults.set(levelProg, forKey: "levelStatus")
             currentLevel += 1
         }
     }
