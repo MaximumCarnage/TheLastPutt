@@ -203,6 +203,7 @@ class GameScene: SKScene {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            
             win()
         }
     }

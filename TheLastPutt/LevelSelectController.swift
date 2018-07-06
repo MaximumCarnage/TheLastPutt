@@ -37,6 +37,10 @@ class LevelSelectController: UIViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        musicEffect.stop()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GameViewController{
             let vc = segue.destination as? GameViewController
