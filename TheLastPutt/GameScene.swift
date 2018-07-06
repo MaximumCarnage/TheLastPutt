@@ -27,6 +27,8 @@ class GameScene: SKScene {
     var currentLevel: Int = 0
     var playerX:CGFloat
     var playerY:CGFloat
+    var levelProg = [Bool]()
+    var highScores = [Int]()
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -35,6 +37,7 @@ class GameScene: SKScene {
     
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
+    let userDefaults = UserDefaults.standard
     
     required init?(coder aDecoder: NSCoder) {
         self.playerX = 0
@@ -44,6 +47,8 @@ class GameScene: SKScene {
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
         playerX = userData?.object(forKey: "playerX") as! CGFloat
         playerY = userData?.object(forKey: "playerY") as! CGFloat
+        levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
+        highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
     }
     
     
@@ -163,6 +168,8 @@ class GameScene: SKScene {
     
     func win() {
         if currentLevel < 18 {
+            levelProg[currentLevel+1] = true
+            userDefaults.set(levelProg, forKey: "levelStatus")
             currentLevel += 1
         }
     }

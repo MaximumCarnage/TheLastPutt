@@ -201,6 +201,15 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="376" height="667"/>
                     <connections>
+                        <outletCollection property="buttonArray" destination="WPl-dL-rSx" collectionClass="NSMutableArray" id="kui-d3-EtY"/>
+                        <outletCollection property="buttonArray" destination="n7l-dF-azX" collectionClass="NSMutableArray" id="7an-Uf-jMR"/>
+                        <outletCollection property="buttonArray" destination="TG9-JB-Roz" collectionClass="NSMutableArray" id="HEx-gL-DkD"/>
+                        <outletCollection property="buttonArray" destination="48V-UP-dJg" collectionClass="NSMutableArray" id="QeB-kK-AkX"/>
+                        <outletCollection property="buttonArray" destination="pmW-VC-d1r" collectionClass="NSMutableArray" id="amI-po-j0l"/>
+                        <outletCollection property="buttonArray" destination="Lwn-pF-Xga" collectionClass="NSMutableArray" id="aGQ-Sm-CaA"/>
+                        <outletCollection property="buttonArray" destination="YiJ-Nj-4DL" collectionClass="NSMutableArray" id="bZG-n5-eub"/>
+                        <outletCollection property="buttonArray" destination="OKU-iK-38X" collectionClass="NSMutableArray" id="Kjs-Dn-Im4"/>
+                        <outletCollection property="buttonArray" destination="qn3-I6-Dt8" collectionClass="NSMutableArray" id="mdR-Om-Ikk"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="levelToGame" id="FXh-4p-PP1"/>
                     </connections>
                 </viewController>
@@ -331,6 +340,15 @@
                         <viewLayoutGuide key="safeArea" id="Z9P-pb-iXM"/>
                     </view>
                     <connections>
+                        <outletCollection property="buttonArray" destination="gSW-yj-NlI" collectionClass="NSMutableArray" id="dWw-li-MAv"/>
+                        <outletCollection property="buttonArray" destination="shi-LL-bkD" collectionClass="NSMutableArray" id="l5c-Jp-zex"/>
+                        <outletCollection property="buttonArray" destination="t69-33-Zaq" collectionClass="NSMutableArray" id="oRe-z9-h73"/>
+                        <outletCollection property="buttonArray" destination="N7s-ZV-CHM" collectionClass="NSMutableArray" id="vvK-Ue-aCk"/>
+                        <outletCollection property="buttonArray" destination="YaG-lM-Zgg" collectionClass="NSMutableArray" id="XTY-Kj-vt7"/>
+                        <outletCollection property="buttonArray" destination="CKC-hO-jIb" collectionClass="NSMutableArray" id="f4Y-rH-esi"/>
+                        <outletCollection property="buttonArray" destination="PUv-lG-ofz" collectionClass="NSMutableArray" id="7EN-Tz-pK2"/>
+                        <outletCollection property="buttonArray" destination="bgP-Ux-P7Z" collectionClass="NSMutableArray" id="KyH-gH-CMW"/>
+                        <outletCollection property="buttonArray" destination="g3h-2i-d3j" collectionClass="NSMutableArray" id="jKW-ou-FHr"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="levelToGame" id="XMz-bz-L2a"/>
                     </connections>
                 </viewController>
@@ -350,7 +368,8 @@
         <image name="spaceMeteors_004" width="220" height="221"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RXH-P0-sPU"/>
         <segue reference="yRn-3h-23c"/>
-        <segue reference="XMz-bz-L2a"/>
+        <segue reference="FXh-4p-PP1"/>
     </inferredMetricsTieBreakers>
 </document>
