@@ -31,6 +31,7 @@ class GameScene: SKScene {
     var swingsLabel = SKLabelNode()
     var swings = 0
     
+    
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,12 +39,13 @@ class GameScene: SKScene {
         super.init(coder: aDecoder)
         background = childNode(withName: "background") as! SKTileMapNode
         obstaclesTileMap = childNode(withName: "obstacles") as? SKTileMapNode
-        
+        var playerX = userData?.object(forKey: "playerX") as? Int
+        var playerY = userData?.object(forKey: "playerY") as? Int
     }
     
     
     override func didMove(to view: SKView) {
-        //ball.position = CGPoint(x: 50, y: 50)
+        ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
         //addChild(background)
@@ -203,6 +205,7 @@ class GameScene: SKScene {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            
             win()
         }
     }
