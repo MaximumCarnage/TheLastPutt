@@ -69,6 +69,7 @@ class GameScene: SKScene {
         swingsLabel.fontColor = SKColor.black
         swingsLabel.fontSize = 24
         swingsLabel.zPosition = 150
+        
         addChild(swingsLabel)
         
         setupWorldPhysics()

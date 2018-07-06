@@ -90,8 +90,8 @@
 		53430C0220E44D4A0086A0FF /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				53AF918E20E301D0002D6A69 /* Level2.sks */,
 				53AF918C20E3018E002D6A69 /* Level1.sks */,
+				53AF918E20E301D0002D6A69 /* Level2.sks */,
 				53AF919020E309ED002D6A69 /* Level3.sks */,
 				53AF919220E30E1D002D6A69 /* Level4.sks */,
 				53AF919420E310EF002D6A69 /* Level5.sks */,
