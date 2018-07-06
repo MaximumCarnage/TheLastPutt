@@ -67,7 +67,10 @@ class GameScene: SKScene {
         
         swingsLabel.text = "Swings: X"
         swingsLabel.fontColor = SKColor.black
-        swingsLabel.fontSize = 24
+        swingsLabel.fontSize = 50
+
+        swingsLabel.verticalAlignmentMode = .bottom
+        swingsLabel.horizontalAlignmentMode = .left
         swingsLabel.zPosition = 150
         
         addChild(swingsLabel)
