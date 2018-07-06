@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import UIKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     //var WaterNode = SKNode()
     // Ball Properties
     var ball = BallNode()
@@ -70,6 +70,8 @@ class GameScene: SKScene {
         setupGrassCollider()
         //setupTreeCollider()
         
+        physicsWorld.contactDelegate = self
+        
     }
     
     func setupWorldPhysics() {
@@ -82,7 +84,9 @@ class GameScene: SKScene {
                 let grassCollider = node.calculateAccumulatedFrame()
                 node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
                 node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.collisionBitMask = PhysicsCategory.Player
                 node.physicsBody?.categoryBitMask = PhysicsCategory.collider
+                
                 node.physicsBody?.isDynamic = false
                 node.physicsBody?.allowsRotation = false
                 node.physicsBody?.restitution = 1.15
@@ -92,13 +96,13 @@ class GameScene: SKScene {
             }
             
             if (node.name == "Collision") {
-                node.physicsBody?.categoryBitMask = PhysicsCategory.Goal
+                let winCollider = node.calculateAccumulatedFrame()
+                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: winCollider.width, height: winCollider.height), center: CGPoint.zero)
+                node.physicsBody!.categoryBitMask = PhysicsCategory.Goal
                 node.physicsBody?.isDynamic = false
                 node.physicsBody?.affectedByGravity = false
                 node.physicsBody?.allowsRotation = false
-                // win()
                 
-                print("Next Level")
             }
         }
     }
@@ -151,9 +155,10 @@ class GameScene: SKScene {
     func win() {
 
         if currentLevel < 18 {
-            levelProg[currentLevel+1] = true
+            
             userDefaults.set(levelProg, forKey: "levelStatus")
             currentLevel += 1
+            levelProg[currentLevel] = true
 //            transitionLevel(level: currentLevel)
         }
         transitionLevel(level: currentLevel)
@@ -161,11 +166,18 @@ class GameScene: SKScene {
 
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
+        print("contact")
+        print(String(contact.bodyA.categoryBitMask))
+        print(String(contact.bodyB.categoryBitMask))
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            print("Finish Level")
             win()
+        }
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.collider {
+            print("hit wall")
         }
     }
     
