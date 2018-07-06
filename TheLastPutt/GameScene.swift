@@ -24,12 +24,13 @@ class GameScene: SKScene {
     var ballSelected: Bool = false
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
-    var currentLevel: Int = 0
+    var currentLevel: Int = 1
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     var swingsLabel = SKLabelNode()
     var swings = 0
+    
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
     
@@ -41,12 +42,11 @@ class GameScene: SKScene {
         
     }
     
-    
     override func didMove(to view: SKView) {
+        
         //ball.position = CGPoint(x: 50, y: 50)
         ball.setScale(2.0)
         addChild(ball)
-        //addChild(background)
         
         swingsLabel.text = "Swings: X"
         swingsLabel.fontColor = SKColor.black
@@ -63,9 +63,8 @@ class GameScene: SKScene {
     
     func setupWorldPhysics() {
         background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
-        
-       
     }
+    
     func setupGrassCollider() {
         for node in self.children {
             if (node.name == "Collider") {
@@ -80,29 +79,21 @@ class GameScene: SKScene {
                 swipeVelocity.x = -swipeVelocity.x
                 
             }
+            
+            if (node.name == "Collision") {
+                node.physicsBody?.categoryBitMask = PhysicsCategory.Goal
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.allowsRotation = false
+                // win()
+                
+                print("Next Level")
+            }
         }
-        
     }
-//    func setupTreeCollider() {
-//        for node in self.children {
-//            if (node.name == "Collider") {
-//                print("Collider")
-//                let grassCollider = node.calculateAccumulatedFrame()
-//                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
-//                node.physicsBody?.affectedByGravity = false
-//                node.physicsBody?.categoryBitMask = PhysicsCategory.collider
-//                node.physicsBody?.isDynamic = false
-//                node.physicsBody?.allowsRotation = false
-//            }
-//        }
-//
-//    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-                // the ball has been selected
-                // find out where the finger has landed
-        
-        
+
 //        if ballSelected {
 //            firstTouchLocation = ball.position
 //        }
@@ -111,7 +102,6 @@ class GameScene: SKScene {
             return
         }
         firstTouchLocation = touch.location(in: self)
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -132,11 +122,6 @@ class GameScene: SKScene {
         swings += 1
     }
 
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-    }
-
-
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if lastUpdateTime > 0 {
@@ -146,17 +131,26 @@ class GameScene: SKScene {
         }
         lastUpdateTime = currentTime
         
-        
-        
         // move(sprite: ball, velocity: swipeVelocity)
         
         swingsLabel.text = "Swings: \(swings)"
-
+        
     }
     
     func win() {
-        if currentLevel < 18 {
+        if currentLevel <= 18 {
             currentLevel += 1
+//            transitionLevel(level: currentLevel)
+        }
+        transitionLevel(level: currentLevel)
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            win()
         }
     }
     
@@ -184,62 +178,13 @@ class GameScene: SKScene {
         // ball.position = CGPoint(x: ball.position.x + swipeVelocity.x, y: ball.position.y + swipeVelocity.y)
     }
     
-//    func golfBounds() {
-//        let leftRIghtBounds = CGPoint.zero
-//        let topBottomBounds = CGPoint(x: size.width, y: size.height)
-//
-//        if ball.position.x <= topBottomBounds.x {
-//            ball.position = topBottomBounds.x
-//            velocity.x = -velocity.x
-//        }
-//    }
-//
-    //func setupWorldPhysics() {
-     //   background.physicsBody =
-      //      SKPhysicsBody(edgeLoopFrom: background.frame)
-    //}
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
-            win()
+    func transitionLevel(level: Int) {
+        guard let newLevel = SKScene(fileNamed: "Level\(level)") as? GameScene else {
+            fatalError("Level \(level) not found")
         }
+
+        newLevel.currentLevel = level
+        newLevel.scaleMode = .aspectFit
+        view?.presentScene(newLevel)
     }
-
-//    func setupObstaclePhysics() {
-//        guard let obstaclesTileMap = obstaclesTileMap else { return }
-//        // 1
-//        var physicsBodies = [SKPhysicsBody]()
-//        // 2
-//        for row in 0..<obstaclesTileMap.numberOfRows {
-//            for column in 0..<obstaclesTileMap.numberOfColumns {
-//                guard let tile = tile(in: obstaclesTileMap,at: (column, row))
-//                                      else { continue }
-//                // 3
-////                let texturedTrees = SKSpriteNode(texture: treeTexture)
-////                texturedTrees.physicsBody = SKPhysicsBody(texture: treeTexture, size: CGSize(width: circularSpaceShip.size.width, height: circularSpaceShip.size.height))
-//
-//
-//
-//
-//
-//                let center = obstaclesTileMap
-//                    .centerOfTile(atColumn: column, row: row)
-// //               let body = SKPhysicsBody(size: CGSize(width: tile.size.width/2, height: tile.size.height)
-//                let body = SKPhysicsBody(rectangleOf: tile.size,
-//                                         center: center)
-//                physicsBodies.append(body)
-//            }
-//        }
-//        // 4
-//        obstaclesTileMap.physicsBody =
-//            SKPhysicsBody(bodies: physicsBodies)
-//        obstaclesTileMap.physicsBody?.isDynamic = false
-//        obstaclesTileMap.physicsBody?.friction = 0
-//    }
-
-    
-    
 }
-//extension GameScene : SKPhysicsContactDelegate{}
