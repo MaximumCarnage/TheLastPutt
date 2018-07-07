@@ -51,14 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
         highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
     }
-    func UpdateStrokes(){
-        
-        
-    }
-    
-
-    
-
     override func didMove(to view: SKView) {
         ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
@@ -71,6 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swingsLabel.verticalAlignmentMode = .bottom
         swingsLabel.horizontalAlignmentMode = .left
         swingsLabel.zPosition = 150
+        swingsLabel.position = CGPoint(x: -frame.width/2 + 20, y: -frame.height/2 + 20)
         
         addChild(swingsLabel)
         
@@ -164,10 +157,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func win() {
 
         if currentLevel < 18 {
-            
-            userDefaults.set(levelProg, forKey: "levelStatus")
-            currentLevel += 1
             levelProg[currentLevel] = true
+            currentLevel += 1
+            userDefaults.set(levelProg, forKey: "levelStatus")
 //            transitionLevel(level: currentLevel)
         }
         transitionLevel(level: currentLevel)
@@ -181,12 +173,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
-            print("Finish Level")
             win()
         }
         
         if collision == PhysicsCategory.Player | PhysicsCategory.collider {
-            print("hit wall")
         }
     }
     
