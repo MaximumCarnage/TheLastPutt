@@ -164,10 +164,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func win() {
 
         if currentLevel < 18 {
-            
-            userDefaults.set(levelProg, forKey: "levelStatus")
-            currentLevel += 1
             levelProg[currentLevel] = true
+            currentLevel += 1
+            userDefaults.set(levelProg, forKey: "levelStatus")
 //            transitionLevel(level: currentLevel)
         }
         transitionLevel(level: currentLevel)
