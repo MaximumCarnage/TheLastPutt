@@ -51,14 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
         highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
     }
-    func UpdateStrokes(){
-        
-        
-    }
-    
-
-    
-
     override func didMove(to view: SKView) {
         ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
@@ -71,6 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swingsLabel.verticalAlignmentMode = .bottom
         swingsLabel.horizontalAlignmentMode = .left
         swingsLabel.zPosition = 150
+        swingsLabel.position = CGPoint(x: -frame.width/2 + 20, y: -frame.height/2 + 20)
         
         addChild(swingsLabel)
         
