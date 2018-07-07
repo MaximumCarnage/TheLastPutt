@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var swingsLabel = SKLabelNode()
     //var swings = 0
-    var swings: Int = 10
+    var swings: Int = 0
     
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
@@ -143,7 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
         
-        swings -= 1
+        swings += 1
     }
 
     override func update(_ currentTime: TimeInterval) {
