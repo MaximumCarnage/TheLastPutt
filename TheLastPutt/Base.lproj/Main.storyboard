@@ -201,6 +201,15 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="376" height="667"/>
                     <connections>
+                        <outletCollection property="buttonArray" destination="WPl-dL-rSx" collectionClass="NSMutableArray" id="kT4-bG-llK"/>
+                        <outletCollection property="buttonArray" destination="n7l-dF-azX" collectionClass="NSMutableArray" id="Xxd-Af-v7N"/>
+                        <outletCollection property="buttonArray" destination="TG9-JB-Roz" collectionClass="NSMutableArray" id="z4N-9G-zA1"/>
+                        <outletCollection property="buttonArray" destination="48V-UP-dJg" collectionClass="NSMutableArray" id="kL0-v4-0kL"/>
+                        <outletCollection property="buttonArray" destination="pmW-VC-d1r" collectionClass="NSMutableArray" id="6gu-Is-JWZ"/>
+                        <outletCollection property="buttonArray" destination="Lwn-pF-Xga" collectionClass="NSMutableArray" id="PlV-lK-1tc"/>
+                        <outletCollection property="buttonArray" destination="YiJ-Nj-4DL" collectionClass="NSMutableArray" id="pgL-Fq-yWR"/>
+                        <outletCollection property="buttonArray" destination="OKU-iK-38X" collectionClass="NSMutableArray" id="oVk-pO-C2q"/>
+                        <outletCollection property="buttonArray" destination="qn3-I6-Dt8" collectionClass="NSMutableArray" id="sx2-CZ-gQT"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="levelToGame" id="FXh-4p-PP1"/>
                     </connections>
                 </viewController>
@@ -258,7 +267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-lM-Zgg">
-                                <rect key="frame" x="160" y="247" width="73" height="69"/>
+                                <rect key="frame" x="309" y="244" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="16" backgroundImage="spaceMeteors_002">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,7 +277,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUv-lG-ofz">
-                                <rect key="frame" x="436" y="247" width="73" height="69"/>
+                                <rect key="frame" x="560" y="244" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="18" backgroundImage="spaceMeteors_003">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -278,7 +287,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKC-hO-jIb">
-                                <rect key="frame" x="306" y="247" width="73" height="69"/>
+                                <rect key="frame" x="436" y="247" width="73" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="17" backgroundImage="spaceMeteors_001">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -317,7 +326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7s-ZV-CHM">
-                                <rect key="frame" x="560" y="250" width="73" height="66"/>
+                                <rect key="frame" x="160" y="244" width="73" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="15" backgroundImage="spaceMeteors_001">
                                     <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -331,6 +340,15 @@
                         <viewLayoutGuide key="safeArea" id="Z9P-pb-iXM"/>
                     </view>
                     <connections>
+                        <outletCollection property="buttonArray" destination="g3h-2i-d3j" collectionClass="NSMutableArray" id="c7H-tk-FeK"/>
+                        <outletCollection property="buttonArray" destination="gSW-yj-NlI" collectionClass="NSMutableArray" id="t1j-Xz-Shf"/>
+                        <outletCollection property="buttonArray" destination="shi-LL-bkD" collectionClass="NSMutableArray" id="sed-Nv-Yld"/>
+                        <outletCollection property="buttonArray" destination="t69-33-Zaq" collectionClass="NSMutableArray" id="a9W-0W-cCc"/>
+                        <outletCollection property="buttonArray" destination="bgP-Ux-P7Z" collectionClass="NSMutableArray" id="coM-S9-qlt"/>
+                        <outletCollection property="buttonArray" destination="N7s-ZV-CHM" collectionClass="NSMutableArray" id="b45-DM-gIK"/>
+                        <outletCollection property="buttonArray" destination="YaG-lM-Zgg" collectionClass="NSMutableArray" id="EJg-ej-jUM"/>
+                        <outletCollection property="buttonArray" destination="CKC-hO-jIb" collectionClass="NSMutableArray" id="fgI-fl-Ht2"/>
+                        <outletCollection property="buttonArray" destination="PUv-lG-ofz" collectionClass="NSMutableArray" id="GxU-Jf-q6h"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="levelToGame" id="XMz-bz-L2a"/>
                     </connections>
                 </viewController>
@@ -350,7 +368,7 @@
         <image name="spaceMeteors_004" width="220" height="221"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YII-ok-nil"/>
-        <segue reference="FXh-4p-PP1"/>
+        <segue reference="yRn-3h-23c"/>
+        <segue reference="XMz-bz-L2a"/>
     </inferredMetricsTieBreakers>
 </document>

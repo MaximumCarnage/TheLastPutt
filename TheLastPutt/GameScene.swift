@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import UIKit
+import AVFoundation
 
 class GameScene: SKScene {
     //var WaterNode = SKNode()
@@ -31,6 +32,9 @@ class GameScene: SKScene {
     var highScores = [Int]()
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    var musicEffect: AVAudioPlayer = AVAudioPlayer()
+    var gameBackgroundMusic:  SKAudioNode!
+    
     
     var swingsLabel = SKLabelNode()
     var swings = 0
@@ -49,12 +53,42 @@ class GameScene: SKScene {
         playerY = userData?.object(forKey: "playerY") as! CGFloat
         levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
         highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
+        
+        
+        
     }
     
     
     
     
     override func didMove(to view: SKView) {
+        
+        //gameBackgroundMusic = SKAudioNode(fileNamed: "LevelMusic.mp3")
+        //addChild(gameBackgroundMusic)
+        if(currentLevel < 6){
+                  let musicFile = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
+            do {
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                
+                musicEffect.play()
+            }
+            catch {
+                print(error)
+            }
+            } else {
+            let musicFile = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
+            do {
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                
+                musicEffect.play()
+            }
+            catch {
+                print(error)
+            }
+        }
+    
+      
+ 
         ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
         addChild(ball)
@@ -72,6 +106,7 @@ class GameScene: SKScene {
         //setupTreeCollider()
         
     }
+    
     
     func setupWorldPhysics() {
         background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
@@ -109,6 +144,7 @@ class GameScene: SKScene {
 //        }
 //
 //    }
+   
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
                 // the ball has been selected
@@ -215,6 +251,19 @@ class GameScene: SKScene {
     func didBegin(_ contact: SKPhysicsContact) {
         
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.collider{
+            let musicFile = Bundle.main.path(forResource: "Putt", ofType: ".mp3")
+            do {
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                
+                musicEffect.play()
+            }
+            catch {
+                print(error)
+            }
+        }
+        
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
             

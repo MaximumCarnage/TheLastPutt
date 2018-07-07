@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22010CAC20F01D54002CF42F /* Putt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22010CAB20F01D54002CF42F /* Putt.mp3 */; };
+		22010CAE20F030A5002CF42F /* LevelMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22010CAD20F030A4002CF42F /* LevelMusic.mp3 */; };
 		228C6C3820EEDC4200953C9E /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C6C3720EEDC4200953C9E /* MainMenuController.swift */; };
 		228C6C3A20EEDFE600953C9E /* MenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */; };
 		22C72F3720EC422C00945010 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C72F3620EC422C00945010 /* AVFoundation.framework */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22010CAB20F01D54002CF42F /* Putt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Putt.mp3; sourceTree = "<group>"; };
+		22010CAD20F030A4002CF42F /* LevelMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LevelMusic.mp3; sourceTree = "<group>"; };
 		228C6C3720EEDC4200953C9E /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MenuMusic.mp3; sourceTree = "<group>"; };
 		22C72F3620EC422C00945010 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -149,6 +153,8 @@
 		FCAB187720DB2C0300EB16DE /* TheLastPutt */ = {
 			isa = PBXGroup;
 			children = (
+				22010CAD20F030A4002CF42F /* LevelMusic.mp3 */,
+				22010CAB20F01D54002CF42F /* Putt.mp3 */,
 				228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */,
 				22D3502320ED9F1000F28CFE /* LevelSelect.mp3 */,
 				FC8E644720E6219E00E161EF /* LevelSelectController.swift */,
@@ -234,6 +240,7 @@
 				FCAB188420DB2C0400EB16DE /* Main.storyboard in Resources */,
 				53F642E620E459A400430EDF /* Level18.sks in Resources */,
 				22D3502420ED9F1000F28CFE /* LevelSelect.mp3 in Resources */,
+				22010CAE20F030A5002CF42F /* LevelMusic.mp3 in Resources */,
 				53F642E420E458F200430EDF /* Level17.sks in Resources */,
 				53F642DA20E4546300430EDF /* Level12.sks in Resources */,
 				53430C0820E451070086A0FF /* Level10.sks in Resources */,
@@ -247,6 +254,7 @@
 				53AF918D20E3018E002D6A69 /* Level1.sks in Resources */,
 				53430C0A20E451E30086A0FF /* Level11.sks in Resources */,
 				FCAB188620DB2C1200EB16DE /* Assets.xcassets in Resources */,
+				22010CAC20F01D54002CF42F /* Putt.mp3 in Resources */,
 				53430C0620E44FEB0086A0FF /* Level9.sks in Resources */,
 				53FF790120E1A2D6006A25D0 /* TileSet.sks in Resources */,
 				FCAB188920DB2C1200EB16DE /* LaunchScreen.storyboard in Resources */,

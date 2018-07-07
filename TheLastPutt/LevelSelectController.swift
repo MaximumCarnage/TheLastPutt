@@ -51,6 +51,16 @@ class LevelSelectController: UIViewController {
             count+=1
             print(count)
         }
+        let musicFile = Bundle.main.path(forResource: "LevelSelect", ofType: ".mp3")
+        do {
+            try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+            
+            musicEffect.play()
+        }
+        catch {
+            print(error)
+        }
+
         
 //        for item in scoreLabels{
 //            item.text = "BestScore:" +  String(highScores[count2])
@@ -66,22 +76,7 @@ class LevelSelectController: UIViewController {
        
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        let musicFile = Bundle.main.path(forResource: "LevelSelect", ofType: ".mp3")
-        do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
-                
-                    musicEffect.play()
-                }
-        catch {
-            print(error)
-        }
-
-
-    }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         musicEffect.stop()
