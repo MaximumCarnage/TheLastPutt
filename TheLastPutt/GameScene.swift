@@ -157,10 +157,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func win() {
 
         if currentLevel < 18 {
-            
-            userDefaults.set(levelProg, forKey: "levelStatus")
-            currentLevel += 1
             levelProg[currentLevel] = true
+            currentLevel += 1
+            userDefaults.set(levelProg, forKey: "levelStatus")
 //            transitionLevel(level: currentLevel)
         }
         transitionLevel(level: currentLevel)
@@ -174,12 +173,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
-            print("Finish Level")
             win()
         }
         
         if collision == PhysicsCategory.Player | PhysicsCategory.collider {
-            print("hit wall")
         }
     }
     
