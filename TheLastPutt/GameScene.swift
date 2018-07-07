@@ -180,12 +180,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
-            print("Finish Level")
             win()
         }
         
         if collision == PhysicsCategory.Player | PhysicsCategory.collider {
-            print("hit wall")
         }
     }
     
