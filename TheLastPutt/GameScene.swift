@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var swingsLabel = SKLabelNode()
     //var swings = 0
-    var swings: Int = 10
+    var swings: Int = 0
     
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
@@ -58,14 +58,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
     }
-    func UpdateStrokes(){
-        
-        
-    }
-    
-
-    
-
     override func didMove(to view: SKView) {
         
         let peaceMusic = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
@@ -106,6 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swingsLabel.verticalAlignmentMode = .bottom
         swingsLabel.horizontalAlignmentMode = .left
         swingsLabel.zPosition = 150
+        swingsLabel.position = CGPoint(x: -frame.width/2 + 20, y: -frame.height/2 + 20)
         
         addChild(swingsLabel)
         
@@ -188,7 +181,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
         
-        swings -= 1
+        swings += 1
     }
     
     func playSound() {
