@@ -11,7 +11,7 @@ import GameplayKit
 import UIKit
 import AVFoundation
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     //var WaterNode = SKNode()
     // Ball Properties
     var ball = BallNode()
@@ -25,7 +25,7 @@ class GameScene: SKScene {
     var ballSelected: Bool = false
     var background: SKTileMapNode!
     var obstaclesTileMap: SKTileMapNode?
-    var currentLevel: Int = 0
+    var currentLevel: Int = 1
     var playerX:CGFloat
     var playerY:CGFloat
     var levelProg = [Bool]()
@@ -34,10 +34,11 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var musicEffect: AVAudioPlayer = AVAudioPlayer()
     var gameBackgroundMusic:  SKAudioNode!
-    
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
     
     var swingsLabel = SKLabelNode()
-    var swings = 0
+    //var swings = 0
+    var swings: Int = 10
     
     
     let treeTexture = SKTexture(imageNamed: "TreeDarkBig2")
@@ -57,28 +58,35 @@ class GameScene: SKScene {
         
         
     }
+    func UpdateStrokes(){
+        
+        
+    }
     
+
     
-    
-    
+
     override func didMove(to view: SKView) {
+        
+        let peaceMusic = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
+        let apocMusic = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
         
         //gameBackgroundMusic = SKAudioNode(fileNamed: "LevelMusic.mp3")
         //addChild(gameBackgroundMusic)
         if(currentLevel < 6){
-                  let musicFile = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
+        
+            
             do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: peaceMusic!))
                 
                 musicEffect.play()
             }
             catch {
                 print(error)
             }
-            } else {
-            let musicFile = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
+            } else{
             do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: apocMusic!))
                 
                 musicEffect.play()
             }
@@ -86,18 +94,19 @@ class GameScene: SKScene {
                 print(error)
             }
         }
-    
-      
- 
+     
         ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
         addChild(ball)
-        //addChild(background)
         
         swingsLabel.text = "Swings: X"
         swingsLabel.fontColor = SKColor.black
-        swingsLabel.fontSize = 24
+        swingsLabel.fontSize = 50
+
+        swingsLabel.verticalAlignmentMode = .bottom
+        swingsLabel.horizontalAlignmentMode = .left
         swingsLabel.zPosition = 150
+        
         addChild(swingsLabel)
         
         setupWorldPhysics()
@@ -105,21 +114,28 @@ class GameScene: SKScene {
         setupGrassCollider()
         //setupTreeCollider()
         
+        physicsWorld.contactDelegate = self
+        
+    }
+   
+    func viewDidDisappear(_ animated: Bool) {
+        musicEffect.stop()
     }
     
     
     func setupWorldPhysics() {
         background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
-        
-       
     }
+    
     func setupGrassCollider() {
         for node in self.children {
             if (node.name == "Collider") {
                 let grassCollider = node.calculateAccumulatedFrame()
                 node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
                 node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.collisionBitMask = PhysicsCategory.Player
                 node.physicsBody?.categoryBitMask = PhysicsCategory.collider
+                
                 node.physicsBody?.isDynamic = false
                 node.physicsBody?.allowsRotation = false
                 node.physicsBody?.restitution = 1.15
@@ -127,30 +143,21 @@ class GameScene: SKScene {
                 swipeVelocity.x = -swipeVelocity.x
                 
             }
+            
+            if (node.name == "Collision") {
+                let winCollider = node.calculateAccumulatedFrame()
+                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: winCollider.width, height: winCollider.height), center: CGPoint.zero)
+                node.physicsBody!.categoryBitMask = PhysicsCategory.Goal
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.affectedByGravity = false
+                node.physicsBody?.allowsRotation = false
+                
+            }
         }
-        
     }
-//    func setupTreeCollider() {
-//        for node in self.children {
-//            if (node.name == "Collider") {
-//                print("Collider")
-//                let grassCollider = node.calculateAccumulatedFrame()
-//                node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: grassCollider.width, height: grassCollider.height), center: CGPoint.zero)
-//                node.physicsBody?.affectedByGravity = false
-//                node.physicsBody?.categoryBitMask = PhysicsCategory.collider
-//                node.physicsBody?.isDynamic = false
-//                node.physicsBody?.allowsRotation = false
-//            }
-//        }
-//
-//    }
-   
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-                // the ball has been selected
-                // find out where the finger has landed
-        
-        
+
 //        if ballSelected {
 //            firstTouchLocation = ball.position
 //        }
@@ -159,7 +166,6 @@ class GameScene: SKScene {
             return
         }
         firstTouchLocation = touch.location(in: self)
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -174,16 +180,28 @@ class GameScene: SKScene {
         let touchLocation = touch.location(in: self)
         lastTouchLocation = touchLocation
         
+        //PUTT
+            
+        
+        playSound()
+        
         ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
         
-        swings += 1
+        swings -= 1
     }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+    
+    func playSound() {
+        let musicFile = Bundle.main.path(forResource: "Putt", ofType: ".wav")
+        do {
+            try soundEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+            
+            soundEffect.play()
+        }
+        catch {
+            print(error)
+        }
     }
-
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -194,19 +212,41 @@ class GameScene: SKScene {
         }
         lastUpdateTime = currentTime
         
-        
-        
         // move(sprite: ball, velocity: swipeVelocity)
         
         swingsLabel.text = "Swings: \(swings)"
-
+        
     }
     
     func win() {
+
         if currentLevel < 18 {
-            levelProg[currentLevel+1] = true
-            userDefaults.set(levelProg, forKey: "levelStatus")
+            levelProg[currentLevel] = true
             currentLevel += 1
+            userDefaults.set(levelProg, forKey: "levelStatus")
+//            transitionLevel(level: currentLevel)
+        }
+        transitionLevel(level: currentLevel)
+    }
+
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
+            win()
+        }
+        
+        if collision == PhysicsCategory.Player | PhysicsCategory.collider {
+                let musicFile = Bundle.main.path(forResource: "Sandsound1", ofType: ".wav")
+                do {
+                    try soundEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+                    
+                    soundEffect.play()
+                }
+                catch {
+                    print(error)
+            }
         }
     }
     
@@ -234,76 +274,15 @@ class GameScene: SKScene {
         // ball.position = CGPoint(x: ball.position.x + swipeVelocity.x, y: ball.position.y + swipeVelocity.y)
     }
     
-//    func golfBounds() {
-//        let leftRIghtBounds = CGPoint.zero
-//        let topBottomBounds = CGPoint(x: size.width, y: size.height)
-//
-//        if ball.position.x <= topBottomBounds.x {
-//            ball.position = topBottomBounds.x
-//            velocity.x = -velocity.x
-//        }
-//    }
-//
-    //func setupWorldPhysics() {
-     //   background.physicsBody =
-      //      SKPhysicsBody(edgeLoopFrom: background.frame)
-    //}
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        if collision == PhysicsCategory.Player | PhysicsCategory.collider{
-            let musicFile = Bundle.main.path(forResource: "Putt", ofType: ".mp3")
-            do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
-                
-                musicEffect.play()
-            }
-            catch {
-                print(error)
-            }
+
+    func transitionLevel(level: Int) {
+        guard let newLevel = SKScene(fileNamed: "Level\(level)") as? GameScene else {
+            fatalError("Level \(level) not found")
+
         }
-        
-        
-        if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
-            
-            win()
-        }
+        newLevel.currentLevel = level
+        newLevel.scaleMode = .aspectFit
+        view?.presentScene(newLevel)
     }
 
-//    func setupObstaclePhysics() {
-//        guard let obstaclesTileMap = obstaclesTileMap else { return }
-//        // 1
-//        var physicsBodies = [SKPhysicsBody]()
-//        // 2
-//        for row in 0..<obstaclesTileMap.numberOfRows {
-//            for column in 0..<obstaclesTileMap.numberOfColumns {
-//                guard let tile = tile(in: obstaclesTileMap,at: (column, row))
-//                                      else { continue }
-//                // 3
-////                let texturedTrees = SKSpriteNode(texture: treeTexture)
-////                texturedTrees.physicsBody = SKPhysicsBody(texture: treeTexture, size: CGSize(width: circularSpaceShip.size.width, height: circularSpaceShip.size.height))
-//
-//
-//
-//
-//
-//                let center = obstaclesTileMap
-//                    .centerOfTile(atColumn: column, row: row)
-// //               let body = SKPhysicsBody(size: CGSize(width: tile.size.width/2, height: tile.size.height)
-//                let body = SKPhysicsBody(rectangleOf: tile.size,
-//                                         center: center)
-//                physicsBodies.append(body)
-//            }
-//        }
-//        // 4
-//        obstaclesTileMap.physicsBody =
-//            SKPhysicsBody(bodies: physicsBodies)
-//        obstaclesTileMap.physicsBody?.isDynamic = false
-//        obstaclesTileMap.physicsBody?.friction = 0
-//    }
-
-    
-    
 }
-//extension GameScene : SKPhysicsContactDelegate{}
