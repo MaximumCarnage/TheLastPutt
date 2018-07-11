@@ -47,11 +47,11 @@ class LevelSelectController: UIViewController {
         for item in buttonArray{
             item.isEnabled = levelProg[count]
             count+=1
-            print(count)
         }
         
 //        for item in scoreLabels{
-//            item.text = "BestScore:" +  String(highScores[count2])
+//
+//            item.text = "BestScore:" +  String(count2)
 //            count2+=1
 //        }
 
