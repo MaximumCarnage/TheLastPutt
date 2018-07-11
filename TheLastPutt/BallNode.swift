@@ -34,13 +34,15 @@ class BallNode: SKSpriteNode {
         
         
         physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+        physicsBody!.categoryBitMask = PhysicsCategory.Player
+        physicsBody?.collisionBitMask = PhysicsCategory.All
         physicsBody?.friction = 0.5
         physicsBody?.restitution = 0.5
         physicsBody?.linearDamping = 0.5
 //        physicsBody?.categoryBitMask = PhysicsCategory.Player
-//        physicsBody?.contactTestBitMask = PhysicsCategory.All
+        physicsBody?.contactTestBitMask = PhysicsCategory.All
     }
-
+    
      func update(_ currentTime: TimeInterval) {
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime

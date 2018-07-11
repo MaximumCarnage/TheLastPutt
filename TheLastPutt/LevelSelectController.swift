@@ -49,7 +49,7 @@ class LevelSelectController: UIViewController {
         for item in buttonArray{
             item.isEnabled = levelProg[count]
             count+=1
-            print(count)
+
         }
         let musicFile = Bundle.main.path(forResource: "LevelSelect", ofType: ".mp3")
         do {
