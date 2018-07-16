@@ -4,12 +4,11 @@
 //
 //  Created by Dylan Bruton on 2018-06-20.
 //  Copyright © 2018 Dean,Dylan,JP,Mark. All rights reserved.
-//dickbutt
+//
 
 import SpriteKit
 import GameplayKit
 import UIKit
-import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     //var WaterNode = SKNode()
@@ -32,9 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var highScores = [Int]()
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
-    var musicEffect: AVAudioPlayer = AVAudioPlayer()
-    var gameBackgroundMusic:  SKAudioNode!
-    var soundEffect: AVAudioPlayer = AVAudioPlayer()
     
     var swingsLabel = SKLabelNode()
     //var swings = 0
@@ -54,39 +50,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerY = userData?.object(forKey: "playerY") as! CGFloat
         levelProg = userDefaults.object(forKey: "levelStatus") as? [Bool] ?? [Bool]()
         highScores = userDefaults.object(forKey: "highScores") as? [Int] ?? [Int]()
-        
-        
-        
     }
     override func didMove(to view: SKView) {
-        
-        let peaceMusic = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
-        let apocMusic = Bundle.main.path(forResource: "LevelMusic", ofType: ".mp3")
-        
-        //gameBackgroundMusic = SKAudioNode(fileNamed: "LevelMusic.mp3")
-        //addChild(gameBackgroundMusic)
-        if(currentLevel < 6){
-        
-            
-            do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: peaceMusic!))
-                
-                musicEffect.play()
-            }
-            catch {
-                print(error)
-            }
-            } else{
-            do {
-                try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: apocMusic!))
-                
-                musicEffect.play()
-            }
-            catch {
-                print(error)
-            }
-        }
-     
         ball.position = CGPoint(x: playerX, y: playerY)
         ball.setScale(2.0)
         addChild(ball)
@@ -110,11 +75,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
     }
-   
-    func viewDidDisappear(_ animated: Bool) {
-        musicEffect.stop()
-    }
-    
     
     func setupWorldPhysics() {
         background.physicsBody = SKPhysicsBody(edgeLoopFrom: background.frame)
@@ -173,27 +133,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touchLocation = touch.location(in: self)
         lastTouchLocation = touchLocation
         
-        //PUTT
-            
-        
-        playSound()
-        
         ball.move(velocity: swipeVelocity)
         touchOffset(firstLocation: firstTouchLocation, lastLocation: lastTouchLocation)
         
         swings += 1
-    }
-    
-    func playSound() {
-        let musicFile = Bundle.main.path(forResource: "Putt", ofType: ".wav")
-        do {
-            try soundEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
-            
-            soundEffect.play()
-        }
-        catch {
-            print(error)
-        }
     }
 
     override func update(_ currentTime: TimeInterval) {
@@ -224,6 +167,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func didBegin(_ contact: SKPhysicsContact) {
+        print("contact")
+        print(String(contact.bodyA.categoryBitMask))
+        print(String(contact.bodyB.categoryBitMask))
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == PhysicsCategory.Player | PhysicsCategory.Goal {
@@ -231,15 +177,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if collision == PhysicsCategory.Player | PhysicsCategory.collider {
-                let musicFile = Bundle.main.path(forResource: "Sandsound1", ofType: ".wav")
-                do {
-                    try soundEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
-                    
-                    soundEffect.play()
-                }
-                catch {
-                    print(error)
-            }
         }
     }
     
@@ -271,7 +208,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func transitionLevel(level: Int) {
         guard let newLevel = SKScene(fileNamed: "Level\(level)") as? GameScene else {
             fatalError("Level \(level) not found")
-
         }
         newLevel.currentLevel = level
         newLevel.scaleMode = .aspectFit
