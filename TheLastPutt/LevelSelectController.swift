@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
+var musicEffect: AVAudioPlayer = AVAudioPlayer()
 
 
 
@@ -47,11 +49,22 @@ class LevelSelectController: UIViewController {
         for item in buttonArray{
             item.isEnabled = levelProg[count]
             count+=1
-            print(count)
+
         }
+        let musicFile = Bundle.main.path(forResource: "LevelSelect", ofType: ".mp3")
+        do {
+            try musicEffect = AVAudioPlayer (contentsOf: URL (fileURLWithPath: musicFile!))
+            
+            musicEffect.play()
+        }
+        catch {
+            print(error)
+        }
+
         
 //        for item in scoreLabels{
-//            item.text = "BestScore:" +  String(highScores[count2])
+//
+//            item.text = "BestScore:" +  String(count2)
 //            count2+=1
 //        }
 
@@ -64,7 +77,11 @@ class LevelSelectController: UIViewController {
        
         
     }
-   
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        musicEffect.stop()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GameViewController{

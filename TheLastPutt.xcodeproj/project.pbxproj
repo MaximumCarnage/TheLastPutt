@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22010CAE20F030A5002CF42F /* LevelMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22010CAD20F030A4002CF42F /* LevelMusic.mp3 */; };
+		22010CB420F04E5A002CF42F /* Sandsound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22010CB320F04E5A002CF42F /* Sandsound1.wav */; };
+		228C6C3820EEDC4200953C9E /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C6C3720EEDC4200953C9E /* MainMenuController.swift */; };
+		228C6C3A20EEDFE600953C9E /* MenuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */; };
+		22C72F3720EC422C00945010 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C72F3620EC422C00945010 /* AVFoundation.framework */; };
+		22D3502420ED9F1000F28CFE /* LevelSelect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22D3502320ED9F1000F28CFE /* LevelSelect.mp3 */; };
+		22DF0AEB20F6B175003A7BC8 /* Putt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22DF0AEA20F6B174003A7BC8 /* Putt.wav */; };
+		22F058AC20F2A9620017E1B1 /* Apocalyptic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22F058AB20F2A9620017E1B1 /* Apocalyptic.mp3 */; };
 		53430C0420E44D7E0086A0FF /* Level8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0320E44D7E0086A0FF /* Level8.sks */; };
 		53430C0620E44FEB0086A0FF /* Level9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0520E44FEB0086A0FF /* Level9.sks */; };
 		53430C0820E451070086A0FF /* Level10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53430C0720E451070086A0FF /* Level10.sks */; };
@@ -41,6 +49,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22010CAD20F030A4002CF42F /* LevelMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LevelMusic.mp3; sourceTree = "<group>"; };
+		22010CB320F04E5A002CF42F /* Sandsound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sandsound1.wav; sourceTree = "<group>"; };
+		228C6C3720EEDC4200953C9E /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MenuMusic.mp3; sourceTree = "<group>"; };
+		22C72F3620EC422C00945010 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		22D3502320ED9F1000F28CFE /* LevelSelect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = LevelSelect.mp3; path = "../../../../Users/markparsikhian/Desktop/TLP Sounds/LevelSelect.mp3"; sourceTree = "<group>"; };
+		22DF0AEA20F6B174003A7BC8 /* Putt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Putt.wav; sourceTree = "<group>"; };
+		22F058AB20F2A9620017E1B1 /* Apocalyptic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Apocalyptic.mp3; sourceTree = "<group>"; };
 		53430C0320E44D7E0086A0FF /* Level8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level8.sks; sourceTree = "<group>"; };
 		53430C0520E44FEB0086A0FF /* Level9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level9.sks; sourceTree = "<group>"; };
 		53430C0720E451070086A0FF /* Level10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level10.sks; sourceTree = "<group>"; };
@@ -71,7 +87,7 @@
 		FCAB187E20DB2C0300EB16DE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FCAB188020DB2C0300EB16DE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FCAB188320DB2C0400EB16DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCAB188520DB2C1200EB16DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCAB188520DB2C1200EB16DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TheLastPutt/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		FCAB188820DB2C1200EB16DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCAB188A20DB2C1200EB16DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,12 +97,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C72F3720EC422C00945010 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22C72F3520EC422C00945010 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22C72F3620EC422C00945010 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		53430C0220E44D4A0086A0FF /* Levels */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +142,7 @@
 			children = (
 				FCAB187720DB2C0300EB16DE /* TheLastPutt */,
 				FCAB187620DB2C0300EB16DE /* Products */,
+				22C72F3520EC422C00945010 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +157,12 @@
 		FCAB187720DB2C0300EB16DE /* TheLastPutt */ = {
 			isa = PBXGroup;
 			children = (
+				22DF0AEA20F6B174003A7BC8 /* Putt.wav */,
+				22F058AB20F2A9620017E1B1 /* Apocalyptic.mp3 */,
+				22010CB320F04E5A002CF42F /* Sandsound1.wav */,
+				22010CAD20F030A4002CF42F /* LevelMusic.mp3 */,
+				228C6C3920EEDFE600953C9E /* MenuMusic.mp3 */,
+				22D3502320ED9F1000F28CFE /* LevelSelect.mp3 */,
 				FC8E644720E6219E00E161EF /* LevelSelectController.swift */,
 				75904F7620E5B90300ED64D7 /* BallNode.swift */,
 				53430C0220E44D4A0086A0FF /* Levels */,
@@ -146,6 +178,7 @@
 				FCAB188A20DB2C1200EB16DE /* Info.plist */,
 				53FF790020E1A2D6006A25D0 /* TileSet.sks */,
 				53F642E720E45FA500430EDF /* HUD.swift */,
+				228C6C3720EEDC4200953C9E /* MainMenuController.swift */,
 			);
 			path = TheLastPutt;
 			sourceTree = "<group>";
@@ -209,17 +242,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EC3EBF20E43D3B0037BF2D /* Level7.sks in Resources */,
+				22DF0AEB20F6B175003A7BC8 /* Putt.wav in Resources */,
 				53AF919520E310EF002D6A69 /* Level5.sks in Resources */,
 				FCAB188420DB2C0400EB16DE /* Main.storyboard in Resources */,
 				53F642E620E459A400430EDF /* Level18.sks in Resources */,
+				22D3502420ED9F1000F28CFE /* LevelSelect.mp3 in Resources */,
+				22010CAE20F030A5002CF42F /* LevelMusic.mp3 in Resources */,
 				53F642E420E458F200430EDF /* Level17.sks in Resources */,
 				53F642DA20E4546300430EDF /* Level12.sks in Resources */,
 				53430C0820E451070086A0FF /* Level10.sks in Resources */,
+				22010CB420F04E5A002CF42F /* Sandsound1.wav in Resources */,
 				FCAB187B20DB2C0300EB16DE /* GameScene.sks in Resources */,
 				53F642E020E4571A00430EDF /* Level15.sks in Resources */,
 				53F642E220E4580C00430EDF /* Level16.sks in Resources */,
+				228C6C3A20EEDFE600953C9E /* MenuMusic.mp3 in Resources */,
 				53EC3EBD20E439820037BF2D /* Level6.sks in Resources */,
 				53AF918F20E301D0002D6A69 /* Level2.sks in Resources */,
+				22F058AC20F2A9620017E1B1 /* Apocalyptic.mp3 in Resources */,
 				53AF919120E309ED002D6A69 /* Level3.sks in Resources */,
 				53AF918D20E3018E002D6A69 /* Level1.sks in Resources */,
 				53430C0A20E451E30086A0FF /* Level11.sks in Resources */,
@@ -243,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75904F7720E5B90300ED64D7 /* BallNode.swift in Sources */,
+				228C6C3820EEDC4200953C9E /* MainMenuController.swift in Sources */,
 				FCAB187F20DB2C0300EB16DE /* GameScene.swift in Sources */,
 				53F642E820E45FA500430EDF /* HUD.swift in Sources */,
 				FCAB188120DB2C0300EB16DE /* GameViewController.swift in Sources */,
@@ -399,11 +439,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = dean.georgiou.TheLastPutt;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = DDJM.TheLastPutt;
->>>>>>> parent of 25b1291... Merge branch 'master' of https://github.com/MaximumCarnage/TheLastPutt
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -421,11 +457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = dean.georgiou.TheLastPutt;
-=======
-				PRODUCT_BUNDLE_IDENTIFIER = DDJM.TheLastPutt;
->>>>>>> parent of 25b1291... Merge branch 'master' of https://github.com/MaximumCarnage/TheLastPutt
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
