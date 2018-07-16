@@ -69,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setupWorldPhysics()
        // setupObstaclePhysics()
-        setupGrassCollider()
+         setupGrassCollider()
         //setupTreeCollider()
         
         physicsWorld.contactDelegate = self
